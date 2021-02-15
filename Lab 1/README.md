@@ -73,7 +73,7 @@ Activity: The three of them are preparing breakfast at the same time while havin
 Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to some coffee and toast before he starts his work day.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
-**![Alt text](IDD_Lab1_storyboard.pdf)**
+**![Storyboard](IDD_Lab1_storyboard.pdf)**
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
 **The user needs to understand the light signals clearly and know what they each mean. 
@@ -113,17 +113,17 @@ Only now should you start worrying about what the device should look like. Devel
 
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
-**![Alt text](IDD_Lab1_proto_design.pdf)**
+**![Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_proto_design.pdf)**
 
 **My idea is that the coffee machine is voice activated and understands all instructions related to what type of coffee to make, and what size. I am not currently sure if it's better for the machine to only be voice activated or if users prefer to also have manual options available. I currently do not have any buttons for coffee preferences, only a manual on/off button. This something I would like to test to see what is better for the users. 
-I have also added some additional small lights to indicate if the water, milk, or coffee beans in the machine need to be refilled. **
+I have also added some additional small lights to indicate if the water, milk, or coffee beans in the machine need to be refilled.**
 
 
 ## Part F. Record
 
 **https://drive.google.com/file/d/1ONIG3xzU0geMqQaGebgEKvR8N9vY0vvl/view?usp=sharing**
 
-**Please indicate anyone you collaborated with on this Lab.**
+**Jeremy Shaffer, Cheng-Wei Hu, Niki Agrawal**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
 
 # Staging Interaction, Part 2 
