@@ -67,9 +67,9 @@ _Activity:_ What is happening between the actors?
 _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening the fridge). 
 
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
-**Setting: The user name is Bob. Every morning he comes into the kitchen where he interacts with his voice enabled coffee machine while he makes breakfast.**
-**Players: Bob is the one interacting with the voice enables coffee machine. In the room with him are his two roommates also making their breakfast.**
-**Activity: The three of them are preparing breakfast at the same time while having conversations with each other.**
+**Setting: The user's name is Bob. Every morning he comes into the kitchen where he interacts with his voice enabled coffee machine while he makes breakfast.**
+**Players: Bob is the one interacting with the voice enabled coffee machine. In the room with him are his two roommates also making their breakfast.**
+**Activity: The three of them are preparing breakfast at the same time while having a conversation with each other.**
 **Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to some coffee and toast before he starts his work day.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
@@ -96,7 +96,7 @@ You will be using your smartphone as a stand-in for the device you are prototypi
 Code for the "Tinkerbelle" tool, and instructions for setting up the server and your phone are [here](https://github.com/FAR-Lab/tinkerbelle).
 
 We invented this tool for this lab! 
-**I like the tool, however I had some trouble getting the the server to load on my laptop and phone. After trying for a while I ultimately re-cloned the repo, after which it worked fine so I'm not what caused the initial issues with the server.**
+**I like the tool, however I had some trouble getting the page to load on my laptop and phone. After trying for a while I ultimately re-cloned the repo, after which it worked fine so I'm not what caused the initial issues.**
 
 ## Part D. Wizard the device
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
@@ -115,7 +115,7 @@ Think about the setting of the device: is the environment a place where the devi
 
 **![Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_proto_design.pdf)**
 
-**My idea is that the coffee machine is voice activated and understands all instructions related to what type of coffee to make, and what size. I am not currently sure if it's better for the machine to only be voice activated or if users prefer to also have manual options available. I currently do not have any buttons for coffee preferences, only a manual on/off button. This something I would like to test to see what is better for the users. 
+**My idea is that the coffee machine is voice activated and understands all instructions related to what type of coffee to make, and what size. I am not currently sure if it's better for the machine to only be voice activated or if users prefer to also have manual options available. I currently do not have any buttons for coffee preferences, only a manual on/off button. This something I would like to test in order to see what is better for the users. 
 I have also added some additional small lights to indicate if the water, milk, or coffee beans in the machine need to be refilled.**
 
 
