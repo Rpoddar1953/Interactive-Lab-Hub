@@ -67,22 +67,26 @@ _Activity:_ What is happening between the actors?
 _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening the fridge). 
 
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
-**Describe your setting, players, activity and goals here.**
+**Setting: The user name is Bob. Every morning he comes into the kitchen where he interacts with his voice enabled coffee machine while he makes breakfast.
+Players: Bob is the one interacting with the voice enables coffee machine. In the room with him are his two roommates also making their breakfast.
+Activity: The three of them are preparing breakfast at the same time while having conversations with each other. 
+Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to some coffee and toast before he starts his work day.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
-**Include a picture of your storyboard here**
+**![Alt text](IDD_Lab1_storyboard.pdf)**
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
-**Summarize feedback you got here.**
+**The user needs to understand the light signals clearly and know what they each mean. 
+This coffee machine should also aim to be more helpful than what is currently in the market. **
 
 
 ## Part B. Act out the Interaction
 
 Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
 
-**Are there things that seemed better on paper than acted out?**
+**When acting it out I realized that the lighting signals could be more clear to indicate to the user that the coffee machine is functioning properly. For example currently there is no feedback in my design when the coffee is ready, it simply turns off. By adding additional signals, the interaction will go more smoothly, otherwise the user may be confused.**
 
-**Are there new ideas that occur to you or your collaborators that come up from the acting?**
+**One idea that came up is to have the light blink to indicate that it understood the instructions, and blink to indicate that the coffee is ready.**
 
 
 ## Part C. Prototype the device
@@ -92,16 +96,16 @@ You will be using your smartphone as a stand-in for the device you are prototypi
 Code for the "Tinkerbelle" tool, and instructions for setting up the server and your phone are [here](https://github.com/FAR-Lab/tinkerbelle).
 
 We invented this tool for this lab! 
-**Give us feedback on Tinkerbelle.**
+**I like the tool, however I had some trouble getting the the server to load on my laptop and phone. After trying for a while I ultimately re-cloned the repo, after which it worked fine so I'm not what caused the initial issues with the server.**
 
 ## Part D. Wizard the device
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
 
-**Include your first attempts at recording the set-up video here.**
+**https://drive.google.com/file/d/1zNb3pVN4A5Ma_0wBJ3ZWR9gDk0Zy8GAF/view?usp=sharing**
 
 Now, hange the goal within the same setting, and update the interaction with the paper prototype. 
 
-**Show the follow-up work here.**
+**https://drive.google.com/file/d/1p93W7apTC47IKqBBmmQ1jwLDKnMY41kS/view?usp=sharing**
 
 ## Part E. Costume the device
 
@@ -109,14 +113,15 @@ Only now should you start worrying about what the device should look like. Devel
 
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
-**Include sketches of what your device might look like here.**
+**![Alt text](IDD_Lab1_proto_design.pdf)**
 
-**What concerns or opportunitities are influencing the way you've designed the device to look?**
+**My idea is that the coffee machine is voice activated and understands all instructions related to what type of coffee to make, and what size. I am not currently sure if it's better for the machine to only be voice activated or if users prefer to also have manual options available. I currently do not have any buttons for coffee preferences, only a manual on/off button. This something I would like to test to see what is better for the users. 
+I have also added some additional small lights to indicate if the water, milk, or coffee beans in the machine need to be refilled. **
 
 
 ## Part F. Record
 
-**Take a video of your prototyped interaction.**
+**https://drive.google.com/file/d/1ONIG3xzU0geMqQaGebgEKvR8N9vY0vvl/view?usp=sharing**
 
 **Please indicate anyone you collaborated with on this Lab.**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
