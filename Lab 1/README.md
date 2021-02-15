@@ -67,17 +67,17 @@ _Activity:_ What is happening between the actors?
 _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening the fridge). 
 
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
-**Setting: The user name is Bob. Every morning he comes into the kitchen where he interacts with his voice enabled coffee machine while he makes breakfast.
-Players: Bob is the one interacting with the voice enables coffee machine. In the room with him are his two roommates also making their breakfast.
-Activity: The three of them are preparing breakfast at the same time while having conversations with each other. 
-Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to some coffee and toast before he starts his work day.**
+**Setting: The user name is Bob. Every morning he comes into the kitchen where he interacts with his voice enabled coffee machine while he makes breakfast.**
+**Players: Bob is the one interacting with the voice enables coffee machine. In the room with him are his two roommates also making their breakfast.**
+**Activity: The three of them are preparing breakfast at the same time while having conversations with each other. **
+**Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to some coffee and toast before he starts his work day.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
 **![Storyboard](IDD_Lab1_storyboard.pdf)**
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
-**The user needs to understand the light signals clearly and know what they each mean. 
-This coffee machine should also aim to be more helpful than what is currently in the market. **
+**The user needs to understand the light signals clearly and know what they each mean.**
+**This coffee machine should also aim to be more helpful than what is currently in the market. **
 
 
 ## Part B. Act out the Interaction
