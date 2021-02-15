@@ -70,7 +70,7 @@ The interactive device can be anything *except* a computer, a tablet computer or
 **Setting: The user's name is Bob. Every morning he comes into the kitchen where he interacts with his voice enabled coffee machine while he makes breakfast.**
 **Players: Bob is the one interacting with the voice enabled coffee machine. In the room with him are his two roommates also making their breakfast.**
 **Activity: The three of them are preparing breakfast at the same time while having a conversation with each other.**
-**Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to some coffee and toast before he starts his work day.**
+**Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to make some coffee and food before he starts his work day.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
 **![Storyboard](IDD_Lab1_storyboard.pdf)**
