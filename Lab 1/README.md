@@ -123,7 +123,7 @@ I have also added some additional small lights to indicate if the water, milk, o
 
 **https://drive.google.com/file/d/1ONIG3xzU0geMqQaGebgEKvR8N9vY0vvl/view?usp=sharing**
 
-**Jeremy Shaffer, Cheng-Wei Hu, Niki Agrawal**
+**Breakout room feedback from: Jeremy Shaffer, Cheng-Wei Hu, Niki Agrawal**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
 
 # Staging Interaction, Part 2 
