@@ -144,4 +144,12 @@ Do last week’s assignment again, but this time:
 2) You can use any modality (e.g., vibration, sound) to prototype the behaviors, 
 3) We will be grading with an emphasis on creativity. 
 
-**Document everything here.**
+**The setting and main player are the same as before: The main user is in their kitchen interacting with their voice enabled coffee machine as they make breakfast in the morning. This time however the coffee machine has a voice feature that lets the user know when the coffee is being made and when it is done. This helps notify the user when their coffee is ready.**
+
+**Updated Storyboard: ![New Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_lab1_part2storyboard.pdf) **
+
+**Updated Design to include audio speaker: ![Updated Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_part2design.pdf)**
+
+** Final Interaction Video: https://drive.google.com/file/d/1LM92hxpdFxr6-loEO2OzOUM16R8bSweU/view?usp=sharing **
+
+** Contributors: Jeremy Shaffer and Snigdha Singhania (Breakout room). Shivani Doshi (Helped with video)**
