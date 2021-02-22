@@ -135,7 +135,15 @@ This describes the second week's work for this lab activity.
 
 You will be assigned three partners from another group. Go to their github pages, view their videos, and provide them with reactions, suggestions & feedback: explain to them what you saw happening in their video. Guess the scene and the goals of the character. Ask them about anything that wasn’t clear. 
 
-**Summarize feedback from your partners here.**
+**Summary of feedback:**
+* Not clear what the green and flashing green mean vs the yellow and flashing yellow.
+* I'm not sure what the colors of light mean. If it doesn't support many functions then I guess users can memorize the meaning of each color easily. Otherwise, it may have to add different methods to explain what's going on.
+* Maybe it would be more clear if a blinking light (of any color) was only used to indicate active brewing?
+* In the future project, maybe some sound could help so that you could be alerted when the coffee was done.
+* I somehow think the way the machine flash is cute. It will be really pleasant to interact with the machine if the light looks like its eyes or some part of a cute little robot.
+* Maybe the coffee machine could also give feedback if it needs certain ingredients.
+* I love the whole setup for the coffee machine! It makes me understand how the machine can be placed and make the interaction more realistic.
+* Overall great setup for the demo.
 
 ## Make it your own
 
@@ -146,9 +154,9 @@ Do last week’s assignment again, but this time:
 
 **The setting and main player are the same as before: The main user is in their kitchen interacting with their voice enabled coffee machine as they make breakfast in the morning. This time however the coffee machine has a voice feature that lets the user know when the coffee is being made and when it is done. This helps notify the user when their coffee is ready.**
 
-**Updated Storyboard: ![New Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_lab1_part2storyboard.pdf) **
+**Updated Storyboard: ![New Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_lab1_part2storyboard.png) **
 
-**Updated Design to include audio speaker: ![Updated Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_part2design.pdf)**
+**Updated Design to include audio speaker: ![Updated Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_part2design.png)**
 
 ** Final Interaction Video: https://drive.google.com/file/d/1LM92hxpdFxr6-loEO2OzOUM16R8bSweU/view?usp=sharing **
 
