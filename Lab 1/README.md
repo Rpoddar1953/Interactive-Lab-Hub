@@ -73,7 +73,7 @@ The interactive device can be anything *except* a computer, a tablet computer or
 **Goals: Each member of the house would like to make breakfast quickly and get out of each others way. Bob is hurrying to make some coffee and food before he starts his work day.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
-**![Storyboard](IDD_Lab1_storyboard.pdf)**
+**![Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_storyboard.png)**
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
 **The user needs to understand the light signals clearly and know what they each mean.**
@@ -113,7 +113,7 @@ Only now should you start worrying about what the device should look like. Devel
 
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
-**![Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_proto_design.pdf)**
+**![Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_proto_design.png)**
 
 **My idea is that the coffee machine is voice activated and understands all instructions related to what type of coffee to make, and what size. I am not currently sure if it's better for the machine to only be voice activated or if users prefer to also have manual options available. I currently do not have any buttons for coffee preferences, only a manual on/off button. This something I would like to test in order to see what is better for the users. 
 I have also added some additional small lights to indicate if the water, milk, or coffee beans in the machine need to be refilled.**
@@ -154,10 +154,10 @@ Do last week’s assignment again, but this time:
 
 **The setting and main player are the same as before: The main user is in their kitchen interacting with their voice enabled coffee machine as they make breakfast in the morning. This time however the coffee machine has a voice feature that lets the user know when the coffee is being made and when it is done. This helps notify the user when their coffee is ready.**
 
-**Updated Storyboard: ![New Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_lab1_part2storyboard.png) **
+**Updated Storyboard: ![New Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_lab1_part2storyboard.png)**
 
 **Updated Design to include audio speaker: ![Updated Prototype design image](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_Lab1_part2design.png)**
 
-** Final Interaction Video: https://drive.google.com/file/d/1LM92hxpdFxr6-loEO2OzOUM16R8bSweU/view?usp=sharing **
+**Final Interaction Video: https://drive.google.com/file/d/1LM92hxpdFxr6-loEO2OzOUM16R8bSweU/view?usp=sharing**
 
-** Contributors: Jeremy Shaffer and Snigdha Singhania (Breakout room). Shivani Doshi (Helped with video)**
+**Contributors: Jeremy Shaffer and Snigdha Singhania (Breakout room). Shivani Doshi (Helped with video)**
