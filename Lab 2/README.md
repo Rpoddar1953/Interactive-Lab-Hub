@@ -9,6 +9,9 @@ It is worth spending a little time thinking about how you mark time, and what wo
 **Please indicate anyone you collaborated with on this Lab here.**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
 
+**For this entire lab I worked with Shivani Doshi (sgd73), we worked on the code for the clock and the video together, our code is the same except for in image.py where we experimented slightly differently. Here is Shivani's repo: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Lab%202.**
+
+
 ## Prep
 
 [Lab prep](prep.md) is extra long this week! Make sure you read it over in time to prepare for lab on Wednesday.
@@ -153,7 +156,7 @@ Does time have to be linear?  How do you measure a year? [In daylights? In midni
 
 Can you make time interactive? You can look in `screen_test.py` for examples for how to use the buttons.
 
-**A copy of your code should be in your Lab 2 Github repo.**
+**A copy of your code should be in your Lab 2 Github repo.** **I worked with Shivani on this lab, our code in screen_clock.py is the same.**
 
 you can push to your personal github repo by adding the files here, commiting and pushing.
 
@@ -168,10 +171,12 @@ After that git will ask you to login to your github account to upload.
 ## Part F. 
 ## Make a short video of your modified barebones PiClock
 
-**Take a video of your PiClock.**
+**Take a video of your PiClock.** **Link to video: https://drive.google.com/file/d/1tq70Sjqui4XYMWgT17rZzMMTv67OKrcm/view?usp=sharing**
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
+**For Part 2: We want to change the buttons so that one button changes the format for both the date and the time and the other button allows the user to select between a few different background images. We also would like to add sound effects, for example a beep when the clock hits an hour mark. However, this sound feature may not be possible with our current equipment.**
 
+![Image](IMG_20210228_171659.jpg)
 
