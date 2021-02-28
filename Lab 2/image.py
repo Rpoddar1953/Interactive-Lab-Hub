@@ -129,11 +129,11 @@ while True:
     else:
         backlight.value = True  # turn on backlight
     if buttonB.value and not buttonA.value:  # just button A pressed
-        disp.image(image1) # set the screen to the users color
+        disp.image(image1) 
     if buttonA.value and not buttonB.value:  # just button B pressed
-        disp.image(image2)  # set the screen to white
+        disp.image(image2)  
     if not buttonA.value and not buttonB.value:  # none pressed
-        disp.image(image)  # green
+        disp.image(image)  
 
 
 

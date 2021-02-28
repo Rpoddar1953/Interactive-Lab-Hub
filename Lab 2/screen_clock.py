@@ -49,12 +49,13 @@ padding = -2
 top = padding
 bottom = height - padding
 # Move left to right keeping track of the current x position for drawing shapes.
-x = 0
+x = 5
 
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
-font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 27)
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 26)
+font1 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 16)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
@@ -68,68 +69,53 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 
-#TIME = time.strftime("%H:%M:%S")
-#DATE = time.strftime("%m/%d/%Y")
+DAYW = "%a, %d %b %Y"
+DAYN = "%a, %m/%d/%Y"
+TIMEH = "%H:%M:%S"
+TIMEI = "%I:%M:%S %p"
+
+DAY = DAYW
+TIME = TIMEI
+
+d = 0
+t = 0
 
 while True:
     # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
- 
-    #TIMEN = time.strftime("%H:%M:%S") 
-    #TIMEL = time.strftime("%I:%M:%S %p")
-    #DATEN = time.strftime("%m/%d/%Y") 
-    #DATEL = time.strftime("%a, %d %b %Y")
+    draw.rectangle((0, 0, width, height), outline=0, fill="#5B009E")
 
-    
-    TIME = time.strftime("%H:%M:%S")
-    DATE = time.strftime("%m/%d/%Y")
+    cmd = "curl -s wttr.in/?format=1"
+    WTTR = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
-   
+    if buttonB.value and not buttonA.value: # just button A pressed
+        if d % 2 == 0:
+            DAY = DAYW
+        else:
+            DAY = DAYN
+        d += 1
+    if buttonA.value and not buttonB.value: # just button B pressed
+        if t % 2 == 0:
+            TIME = TIMEI
+        else:
+            TIME = TIMEH
+        t += 1
 
-   # if buttonA.value and buttonB.value:
-   #     backlight.value = False  # turn off backlight
-   # else:
-   #     backlight.value = True  # turn on backlight
+    y = top
+    draw.text((x, y), time.strftime(DAY), font=font, fill="#FFFFFF")
+    y += font.getsize(DAY)[1] + 10
+    draw.text((x, y), time.strftime(TIME), font=font, fill="#00AABA")
+    y += font.getsize(DAY)[1] + 5
+    draw.text((x, y), WTTR, font=font1, fill="#99BA00")
+    y += font.getsize(DAY)[1]
+    draw.text((x, y), "Have a great day!", font=font, fill="#FF69B4")
 
-
-    if buttonB.value and not buttonA.value:  # just button A pressed
-        y=top
-        DATE = time.strftime("%a, %d %b %Y")
-        TIME = time.strftime("%H:%M:%S")
-        draw.text((x,y),DATE, font = font, fill="#FFFF00") 
-        y += font.getsize(DATE)[1]    
-        draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
-        disp.image(image, rotation)
-        time.sleep(1)
-    
-    if buttonA.value and not buttonB.value:  # just button B pressed
-        y=top
-        TIME = time.strftime("%I:%M:%S %p")
-        draw.text((x,y),DATE, font = font, fill="#FFFF00") 
-        y += font.getsize(DATE)[1]    
-        draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
-        disp.image(image, rotation)
-        time.sleep(1)
-
-
-    if  buttonA.value and  buttonB.value:  # none pressed
-        y=top
-        draw.text((x,y),DATE, font = font, fill="#FFFF00")  
-        y += font.getsize(DATE)[1]    
-        draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
-        
-        # Display image.
-        disp.image(image, rotation)
-        time.sleep(1)
-
-    if not buttonA.value and not buttonB.value:
-        time.sleep(1)
-
-    
-    
     # Display image.
-    #disp.image(image, rotation)
-    #time.sleep(1)
+    disp.image(image, rotation)
+    time.sleep(0.6)
+
+
+
+
 
 
 
