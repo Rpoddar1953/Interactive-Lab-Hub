@@ -65,22 +65,30 @@ if disp.rotation % 180 == 90:
 else:
     width = disp.width  # we swap height/width to rotate it to landscape!
     height = disp.height
-image = Image.new("RGB", (width, height))
+image1 = Image.new("RGB", (width, height))
 
 # Get drawing object to draw on image.
-draw = ImageDraw.Draw(image)
+draw = ImageDraw.Draw(image2)
 
 # Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
-disp.image(image)
+disp.image(image2)
 
-image = Image.open("red.jpg")
+image1 = Image.open("red.jpg")
+#image2 = Image.open("")
+
 backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
+buttonA = digitalio.DigitalInOut(board.D23)
+buttonB = digitalio.DigitalInOut(board.D24)
 
-# Scale the image to the smaller screen dimension
+buttonA.switch_to_input()
+buttonB.switch_to_input()
+
+
+# Scale the image1 to the smaller screen dimension
 image_ratio = image.width / image.height
 screen_ratio = width / height
 if screen_ratio < image_ratio:
@@ -95,6 +103,38 @@ image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
 x = scaled_width // 2 - width // 2
 y = scaled_height // 2 - height // 2
 image = image.crop((x, y, x + width, y + height))
+
+
+# Scale the image to the smaller screen dimension
+image2_ratio = image2.width / image2.height
+screen_ratio = width / height
+if screen_ratio < image2_ratio:
+    scaled2_width = image2.width * height // image2.height
+    scaled2_height = height
+else:
+    scaled2_width = width
+    scaled2_height = image2.height * width // image2.width
+image2 = image2.resize((scaled2_width, scaled2_height), Image.BICUBIC)
+
+# Crop and center the image
+x = scaled2_width // 2 - width // 2
+y = scaled2_height // 2 - height // 2
+
+
+# Main loop:
+while True:
+    if buttonA.value and buttonB.value:
+        backlight.value = False  # turn off backlight
+    else:
+        backlight.value = True  # turn on backlight
+    if buttonB.value and not buttonA.value:  # just button A pressed
+        display.fill(screenColor) # set the screen to the users color
+    if buttonA.value and not buttonB.value:  # just button B pressed
+        display.fill(color565(255, 255, 255))  # set the screen to white
+    if not buttonA.value and not buttonB.value:  # none pressed
+        display.fill(color565(0, 255, 0))  # green
+
+
 
 # Display image.
 disp.image(image)
