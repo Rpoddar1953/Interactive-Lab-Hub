@@ -67,23 +67,23 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
-from time import strftime, sleep
+
+#TIME = time.strftime("%H:%M:%S")
+#DATE = time.strftime("%m/%d/%Y")
 
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
  
-    TIMEN = time.strftime("%H:%M:%S") 
-    TIMEL = time.strftime("%I:%M:%S %p")
-    DATEN = time.strftime("%m/%d/%Y") 
-    DATEL = time.strftime("%a, %d %b %Y")
+    #TIMEN = time.strftime("%H:%M:%S") 
+    #TIMEL = time.strftime("%I:%M:%S %p")
+    #DATEN = time.strftime("%m/%d/%Y") 
+    #DATEL = time.strftime("%a, %d %b %Y")
 
+    
+    TIME = time.strftime("%H:%M:%S")
+    DATE = time.strftime("%m/%d/%Y")
 
-
-    #y = top
-    #draw.text((x,y),DATE, font = font, fill="#FFFF00") 
-    #y += font.getsize(DATE)[1]    
-    #draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
    
 
    # if buttonA.value and buttonB.value:
@@ -94,34 +94,42 @@ while True:
 
     if buttonB.value and not buttonA.value:  # just button A pressed
         y=top
-        draw.text((x,y),DATEL, font = font, fill="#FFFF00") 
-        y += font.getsize(DATEL)[1]    
-        draw.text((x,y),TIMEN, font = font, fill="#FFC0CB") 
+        DATE = time.strftime("%a, %d %b %Y")
+        TIME = time.strftime("%H:%M:%S")
+        draw.text((x,y),DATE, font = font, fill="#FFFF00") 
+        y += font.getsize(DATE)[1]    
+        draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
         disp.image(image, rotation)
         time.sleep(1)
     
     if buttonA.value and not buttonB.value:  # just button B pressed
         y=top
-        draw.text((x,y),DATEN, font = font, fill="#FFFF00") 
-        y += font.getsize(DATEN)[1]    
-        draw.text((x,y),TIMEL, font = font, fill="#FFC0CB") 
+        TIME = time.strftime("%I:%M:%S %p")
+        draw.text((x,y),DATE, font = font, fill="#FFFF00") 
+        y += font.getsize(DATE)[1]    
+        draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
         disp.image(image, rotation)
         time.sleep(1)
 
 
-    if buttonA.value and buttonB.value:  # none pressed
+    if  buttonA.value and  buttonB.value:  # none pressed
         y=top
-        draw.text((x,y),DATEN, font = font, fill="#FFFF00")  
-        y += font.getsize(DATEN)[1]    
-        draw.text((x,y),TIMEN, font = font, fill="#FFC0CB") 
+        draw.text((x,y),DATE, font = font, fill="#FFFF00")  
+        y += font.getsize(DATE)[1]    
+        draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
+        
         # Display image.
         disp.image(image, rotation)
         time.sleep(1)
 
+    if not buttonA.value and not buttonB.value:
+        time.sleep(1)
 
+    
+    
     # Display image.
-   # disp.image(image, rotation)
-   # time.sleep(1)
+    #disp.image(image, rotation)
+    #time.sleep(1)
 
 
 
