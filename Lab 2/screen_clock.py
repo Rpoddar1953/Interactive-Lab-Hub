@@ -86,23 +86,10 @@ while True:
     #draw.text((x,y),TIME, font = font, fill="#FFC0CB") 
    
 
-    if buttonA.value and buttonB.value:
-        backlight.value = False  # turn off backlight
-    else:
-        backlight.value = True  # turn on backlight
-
-
-        y=top
-        draw.text((x,y),DATEN, font = font, fill="#FFFF00")  
-        y += font.getsize(DATEN)[1]    
-        draw.text((x,y),TIMEN, font = font, fill="#FFC0CB") 
-        # Display image.
-        disp.image(image, rotation)
-        time.sleep(1)
-
-
-
-
+   # if buttonA.value and buttonB.value:
+   #     backlight.value = False  # turn off backlight
+   # else:
+   #     backlight.value = True  # turn on backlight
 
 
     if buttonB.value and not buttonA.value:  # just button A pressed
@@ -122,7 +109,7 @@ while True:
         time.sleep(1)
 
 
-    if not buttonA.value and not buttonB.value:  # none pressed
+    if buttonA.value and buttonB.value:  # none pressed
         y=top
         draw.text((x,y),DATEN, font = font, fill="#FFFF00")  
         y += font.getsize(DATEN)[1]    
@@ -135,3 +122,6 @@ while True:
     # Display image.
    # disp.image(image, rotation)
    # time.sleep(1)
+
+
+
