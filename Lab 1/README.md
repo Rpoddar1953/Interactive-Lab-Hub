@@ -96,14 +96,14 @@ You will be using your smartphone as a stand-in for the device you are prototypi
 Code for the "Tinkerbelle" tool, and instructions for setting up the server and your phone are [here](https://github.com/FAR-Lab/tinkerbelle).
 
 We invented this tool for this lab! 
-<<<<<<< HEAD
+
 **I like the tool, however I had some trouble getting the page to load on my laptop and phone. After trying for a while I ultimately re-cloned the repo, after which it worked fine so I'm not what caused the initial issues.**
-=======
+
 
 If you run into technical issues with this tool, you can also use a light switch, dimmer, etc. that you can can manually or remotely control.
 
 **Give us feedback on Tinkerbelle.**
->>>>>>> 02f063eaf98c393c66476b33b6da4e1391f14301
+
 
 ## Part D. Wizard the device
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
@@ -159,7 +159,7 @@ Do last week’s assignment again, but this time:
 2) You can use any modality (e.g., vibration, sound) to prototype the behaviors, 
 3) We will be grading with an emphasis on creativity. 
 
-<<<<<<< HEAD
+
 **The setting and main player are the same as before: The main user is in their kitchen interacting with their voice enabled coffee machine as they make breakfast in the morning. This time however the coffee machine has a voice feature that lets the user know when the coffee is being made and when it is done. This helps notify the user when their coffee is ready.**
 
 **Updated Storyboard: ![New Storyboard](https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%201/IDD_lab1_part2storyboard.png)**
@@ -169,6 +169,6 @@ Do last week’s assignment again, but this time:
 **Final Interaction Video: https://drive.google.com/file/d/1LM92hxpdFxr6-loEO2OzOUM16R8bSweU/view?usp=sharing**
 
 **Contributors: Jeremy Shaffer and Snigdha Singhania (Breakout room). Shivani Doshi (Helped with video)**
-=======
+
 **Document everything here. (Particularly we'd like to see the storyboard and video, although photos of the prototype are also great.)**
->>>>>>> 02f063eaf98c393c66476b33b6da4e1391f14301
+
