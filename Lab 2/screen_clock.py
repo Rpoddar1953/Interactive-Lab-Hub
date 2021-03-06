@@ -107,7 +107,11 @@ while True:
     y += font.getsize(DAY)[1] + 5
     draw.text((x, y), WTTR, font=font1, fill="#99BA00")
     y += font.getsize(DAY)[1]
-    draw.text((x, y), "Have a great day!", font=font, fill="#FF69B4")
+
+    if(time.strftime("%p") == "PM"):
+        draw.text((x, y), "Have a good night!", font=font, fill="#FF69B4")
+    else:
+        draw.text((x, y), "Have a great day!", font=font, fill="#FF69B4")
 
     # Display image.
     disp.image(image, rotation)
