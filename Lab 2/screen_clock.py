@@ -4,6 +4,14 @@ import digitalio
 import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
+import board
+import busio
+import adafruit_apds9960.apds9960
+import time
+
+#gesture sensor
+i2c = busio.I2C(board.SCL, board.SDA)
+sensor = adafruit_apds9960.apds9960.APDS9960(i2c)
 
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
@@ -80,6 +88,10 @@ TIME = TIMEI
 d = 0
 t = 0
 
+sensor.enable_proximity = True
+sensor.enable_gesture = True
+
+
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill="#5B009E")
@@ -99,6 +111,14 @@ while True:
         else:
             TIME = TIMEH
         t += 1
+
+    gesture = sensor.gesture()
+    if gesture == 0x03:
+        DAY = DAYW
+        print(DAY)
+    if gesture == 0x04:
+        DAY = DAYN
+        print(DAY)
 
     y = top
     draw.text((x, y), time.strftime(DAY), font=font, fill="#FFFFFF")
