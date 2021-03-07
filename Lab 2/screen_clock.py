@@ -90,24 +90,38 @@ TIME = TIMEI
 d = 0
 t = 0
 
-#initialize backgroubd counter
+#initialize background and background counter
+image1 = Image.open("red.jpg")
+image1 = image1.convert('RGB')
+image1 = image1.resize((width, height), Image.BICUBIC)
+
+#image2 = Image.open("cat.jpg")
+#image2 = image2.convert('RGB')
+#image2 = image2.resize((width, height), Image.BICUBIC)
+
+imaged = image1
+
+disp.image(image1, rotation)
 b = 0
 
 sensor.enable_proximity = True
-#sensor.enable_gesture = True
-
 
 while True:
     # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill="#5B009E")
-
+    #draw = ImageDraw.Draw(image)
+    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    #image = Image.open("red.jpg")
+    #image = image.convert('RGB')
+    #image = image.resize((width, height), Image.BICUBIC)
+    #draw = ImageDraw.Draw(image)
+    #image = imaged
 
     prox = sensor.proximity
     if prox > 2:
         backlight.value = True
+        
     else:
         backlight.value = False
-
 
 
 
@@ -125,20 +139,36 @@ while True:
         t += 1
        
 
-    #if buttonA.value and not buttonB.value: # just button B pressed
-    #    if b % 2 == 0:
-    #        image = Image.open("red.jpg")
-    #        theme = Image.new("RGB", (width, height))
-    #    else:
-    #        image = Image.open("cat.jpg")
-    #        theme = Image.new("RGB", (width, height))
-     #   b += 1
+    if buttonA.value and not buttonB.value: # just button B pressed
+        if b % 2 == 0:
+            #image = image1
+            image = Image.open("red.jpg")
+            image = image.convert('RGB')
+            image = image.resize((width, height), Image.BICUBIC)
+            #draw = ImageDraw.Draw(image)
 
+        else:
+            #image = image2
+            image = Image.open("cat.jpg")
+            image = image.convert('RGB')
+            image = image.resize((width,height), Image.BICUBIC)
+            #draw = ImageDraw.Draw(image)
+
+        b += 1
+
+    #if buttonA.value and buttonB.value:
+     #   image = Image.open("cat.jpg")
+     #   image = image.convert('RGB')
+     #   image = image.resize((width, height), Image.BICUBIC)
+        #draw = ImageDraw.Draw(image)
+
+    
+    draw = ImageDraw.Draw(image)
     y = top
-    #disp.image(image,rotation)
+    
     draw.text((x, y), time.strftime(DAY), font=font, fill="#FFFFFF")
     y += font.getsize(DAY)[1] + 10
-    draw.text((x, y), time.strftime(TIME), font=font, fill="#00AABA")
+    draw.text((x, y), time.strftime(TIME), font=font, fill="#FFFFFF")
     y += font.getsize(DAY)[1] + 5
     draw.text((x, y), WTTR, font=font1, fill="#99BA00")
     y += font.getsize(DAY)[1]
