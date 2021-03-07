@@ -6,26 +6,33 @@ i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_apds9960.apds9960.APDS9960(i2c)
 
 sensor.enable_proximity = True
-sensor.enable_gesture = True
-
-#while True:
-#	prox = sensor.proximity
-#	print(prox)
-#	time.sleep(0.2)
-
-
+#sensor.enable_gesture = True
 
 while True:
-    gesture = sensor.gesture()
-    if gesture == 0x01:
-        print("up")
+	prox = sensor.proximity
+	print(prox)
+	time.sleep(0.2)
+
+
+
+#while True:
+#    gesture = sensor.gesture()
+#    if gesture == 0x01:
+#        print("up")
     
-    elif gesture == 0x02:
-        print("down")
+#    elif gesture == 0x02:
+#        print("down")
         
-    elif gesture == 0x03:
-        print("left")
+#    elif gesture == 0x03:
+#        print("left")
         
-    elif gesture == 0x04:
-        print("right")
-        
+#    elif gesture == 0x04:
+#        print("right")
+
+
+
+#gesture = sensor.gesture()
+#while True:
+ #   gesture = sensor.gesture()
+ #   print('Saw gesture: {0}'.format(gesture))
+ #   time.sleep(0.1)

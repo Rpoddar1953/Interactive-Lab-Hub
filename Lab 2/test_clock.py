@@ -68,7 +68,7 @@ font1 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 16
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
-backlight.value = False
+backlight.value = True
 
 
 buttonA = digitalio.DigitalInOut(board.D23)
@@ -77,7 +77,6 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 
-#Date and Time formats
 DAYW = "%a, %d %b %Y"
 DAYN = "%a, %m/%d/%Y"
 TIMEH = "%H:%M:%S"
@@ -86,56 +85,36 @@ TIMEI = "%I:%M:%S %p"
 DAY = DAYW
 TIME = TIMEI
 
-#initalize date and time counter
 d = 0
 t = 0
 
-#initialize backgroubd counter
-b = 0
-
-sensor.enable_proximity = True
-#sensor.enable_gesture = True
+#sensor.enable_proximity = True
+sensor.enable_gesture = True
 
 
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill="#5B009E")
 
-
-    prox = sensor.proximity
-    if prox > 2:
-        backlight.value = True
-    else:
-        backlight.value = False
-
-
-
-
     cmd = "curl -s wttr.in/?format=1"
     WTTR = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
-    if buttonB.value and not buttonA.value: # just button A pressed
-        if d % 2 == 0 or t % 2 == 0:
-            DAY = DAYW
-            TIME = TIMEI
-        else:
-            DAY = DAYN
-            TIME = TIMEH
-        d += 1
-        t += 1
-       
-
-    #if buttonA.value and not buttonB.value: # just button B pressed
-    #    if b % 2 == 0:
-    #        image = Image.open("red.jpg")
-    #        theme = Image.new("RGB", (width, height))
-    #    else:
-    #        image = Image.open("cat.jpg")
-    #        theme = Image.new("RGB", (width, height))
-     #   b += 1
-
     y = top
-    #disp.image(image,rotation)
+   
+    gesture = sensor.gesture()
+    if gesture == 0x01:
+        DAY = DAYW
+    
+    if gesture == 0x02:
+        DAY = DAYN     
+    
+    if gesture == 0x03:
+        TIME = TIMEH
+        
+    if gesture == 0x04:
+        TIME = TIMEI
+    
+        
     draw.text((x, y), time.strftime(DAY), font=font, fill="#FFFFFF")
     y += font.getsize(DAY)[1] + 10
     draw.text((x, y), time.strftime(TIME), font=font, fill="#00AABA")
@@ -150,11 +129,6 @@ while True:
 
     # Display image.
     disp.image(image, rotation)
-    time.sleep(0.6)
-
-
-
-
-
+    time.sleep(0.01)
 
 
