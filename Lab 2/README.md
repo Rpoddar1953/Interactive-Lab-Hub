@@ -196,9 +196,9 @@ As always, make sure you document contributions and ideas from others explicitly
 
 You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. What each person did should be explicitly documented. Make sure the page for the group turn in is linked to your Interactive Lab Hub page. 
 
-**For Part 2: We changed the buttons on the screen so that one buttons changed the formatting of the date and time and one button changed the background image. The user can choose between three different images. We added a proximity/gesture sensor which turns the display on when it sensors a hand/a person near it, and keeps the display on as long as the hand is near it. Once the hand is far from the sensor it turn the display off. We also added an LED light which activates a timer on the screen when pressed. While the timer is active the LED light is on, if the user pressed the light button again, it removes the timer and returns to the default clock screen, and the LED light turns off.**
+**For Part 2: We changed the buttons on the screen so that one buttons changed the formatting of the date and time and one button changed the background image. The user can choose between three different images. We added a proximity/gesture sensor which turns the display on when it senses a hand/a person near it, and keeps the display on as long as the hand is near it. Once the hand is far from the sensor it turn the display off. We also added an LED light which activates a timer on the screen when pressed. While the timer is active the LED light is on, if the user presses the light button again, it removes the timer and returns to the default clock screen, and the LED light turns off.**
 
-**Shivani and I worked together on the entirety of this lab, from brainstroming the ideas, coding it, and making the video. Our code in screen_clock.py is the same.**
+**Shivani and I worked together on the entirety of this lab, from brainstorming the ideas, to coding and making the video. Our code in screen_clock.py is the same.**
 
 
 
