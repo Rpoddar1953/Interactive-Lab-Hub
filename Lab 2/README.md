@@ -208,6 +208,7 @@ You are permitted (but not required) to work in groups and share a turn in; you 
 
 Video demo with new changes: https://drive.google.com/file/d/1YJfLan2RmghsJ5S5TVQmS8sf_Ag6CVUl/view?usp=sharing
 
+**Note: in order to run our code in screen_clock.py, you need to also run 'pip install sparkfun-qwiic-button'**
 
 
 
