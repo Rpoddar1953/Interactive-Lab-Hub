@@ -107,8 +107,14 @@ while True:
         door_image = door_image.convert('RGB')
         door_image = door_image.resize((width, height), Image.BICUBIC)
         disp.image(door_image, rotation)
+        os.system('echo "Welcome to Riddle 1" | festival --tts')
 
     if joystick.get_vertical() < 450:
+        door_image = Image.open("images/door2.jpg")
+        door_image = door_image.convert('RGB')
+        door_image = door_image.resize((width, height), Image.BICUBIC)
+        disp.image(door_image, rotation)
+        os.system('echo "Welcome to Riddle 2" | festival --tts')
         print("down")
 
     time.sleep(0.1)
