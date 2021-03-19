@@ -17,8 +17,8 @@ import os
 
 
 #gesture sensor
-i2c = busio.I2C(board.SCL, board.SDA)
-sensor = adafruit_apds9960.apds9960.APDS9960(i2c)
+#i2c = busio.I2C(board.SCL, board.SDA)
+#sensor = adafruit_apds9960.apds9960.APDS9960(i2c)
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -86,7 +86,7 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 # For the proximity sensor
-sensor.enable_proximity = True
+#sensor.enable_proximity = True
 
 
 #joy stick
@@ -101,12 +101,15 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-    while joystick.get_horizontal() > 510:
-        door_image = Image.open("images/door.png")
+    if joystick.get_horizontal() > 510:
+        print("right")
+        door_image = Image.open("images/door.jpg")
         door_image = door_image.convert('RGB')
         door_image = door_image.resize((width, height), Image.BICUBIC)
         disp.image(door_image, rotation)
-        
-    
+
+    if joystick.get_vertical() < 450:
+        print("down")
+
     time.sleep(0.1)
 
