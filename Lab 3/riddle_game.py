@@ -13,12 +13,10 @@ import sys
 import digitalio
 import qwiic_joystick
 import os
+from vosk import Model, KaldiRecognizer
+import wave
+import json
 
-
-
-#gesture sensor
-#i2c = busio.I2C(board.SCL, board.SDA)
-#sensor = adafruit_apds9960.apds9960.APDS9960(i2c)
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -85,37 +83,82 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
-# For the proximity sensor
-#sensor.enable_proximity = True
+# For the red and green LED buttons
+buttonR = qwiic_button.QwiicButton(0x6f)
+buttonG = qwiic_button.QwiicButton(0x60)
+buttonR.begin()
+buttonG.begin()
+buttonR.LED_off()
+buttonG.LED_off()
 
+# For the proximity sensor
+i2c = busio.I2C(board.SCL, board.SDA)
+sensor = adafruit_apds9960.apds9960.APDS9960(i2c)
+sensor.enable_proximity = True
 
 #joy stick
 joystick = qwiic_joystick.QwiicJoystick()
 joystick.begin()
 
 
-# Set the default image to display
-#image = Image.open("images/background1.jpg")
+os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav recorded_mono.wav')
+
+wf = wave.open("recorded_mono.wav", "rb")
+
+model = Model("model")
+# You can also specify the possible word list
+rec = KaldiRecognizer(model, wf.getframerate(), "zero oh one two three four five six seven eight nine [unk]")
+
 
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
+
+    prox = sensor.proximity
+    if prox > 1:
+        main_image = Image.open("images/welcome.png")
+        main_image = main_image.convert('RGB')
+        main_image = main_image.resize((width, height), Image.BICUBIC)
+        disp.image(main_image, rotation)
+        os.system('echo "Welcome to puzzle bot! You must solve 4 riddles to win. Use the joystick to navigate to each riddle. Remember to say your answer loudly and directly into the mike. Good luck!" | festival --tts')
+
     if joystick.get_horizontal() > 510:
-        print("right")
-        door_image = Image.open("images/door.jpg")
+        door_image = Image.open("images/door1.jpeg")
         door_image = door_image.convert('RGB')
         door_image = door_image.resize((width, height), Image.BICUBIC)
         disp.image(door_image, rotation)
-        os.system('echo "Welcome to Riddle 1" | festival --tts')
+        os.system('echo "Riddle 1" | festival --tts')
 
     if joystick.get_vertical() < 450:
-        door_image = Image.open("images/door2.jpg")
+        door_image = Image.open("images/door2.jpeg")
         door_image = door_image.convert('RGB')
         door_image = door_image.resize((width, height), Image.BICUBIC)
         disp.image(door_image, rotation)
-        os.system('echo "Welcome to Riddle 2" | festival --tts')
-        print("down")
+        os.system('echo "Riddle 2" | festival --tts')
+
+    if joystick.get_horizontal() < 100:
+        door_image = Image.open("images/door3.jpeg")
+        door_image = door_image.convert('RGB')
+        door_image = door_image.resize((width, height), Image.BICUBIC)
+        disp.image(door_image, rotation)
+        os.system('echo "Riddle 3" | festival --tts')
+
+    if joystick.get_vertical() > 1000:
+        door_image = Image.open("images/door4.jpeg")
+        door_image = door_image.convert('RGB')
+        door_image = door_image.resize((width, height), Image.BICUBIC)
+        disp.image(door_image, rotation)
+        os.system('echo "Riddle 4" | festival --tts')
+
+
+    data = wf.readframes(4000)
+    if len(data) == 0:
+        break
+    rec.AcceptWaveform(data)
+
+    d = json.loads(rec.FinalResult())
+    print(d["text"])
+
 
     time.sleep(0.1)
-
