@@ -16,6 +16,7 @@ import os
 from vosk import Model, KaldiRecognizer
 import wave
 import json
+from subprocess import Popen, call
 
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
@@ -101,6 +102,13 @@ joystick = qwiic_joystick.QwiicJoystick()
 joystick.begin()
 
 
+def handle_speak(val):
+    call(f"espeak '{val}'", shell=True)
+
+
+def check_userinput():
+
+
 
 while True:
     # Draw a black filled box to clear the image.
@@ -120,7 +128,34 @@ while True:
         door_image = door_image.convert('RGB')
         door_image = door_image.resize((width, height), Image.BICUBIC)
         disp.image(door_image, rotation)
-        os.system('echo "Riddle 1" | festival --tts')
+        handle_speak("Riddle 1")
+        handle_speak("You have ten seconds to answer")
+
+        #record the users voice, set to last 10 seconds
+        os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
+
+        #open the recorded file
+        wf = wave.open("recorded_mono.wav", "rb")
+
+        #store vosk model
+        model = Model("model")
+        rec = KaldiRecognizer(model, wf.getframerate())
+        
+        while True:
+            data = wf.readframes(4000)
+            if len(data) == 0:
+                break
+            rec.AcceptWaveform(data)
+                #res = json.loads(rec.Result())
+                #print ("Text:", res['text'])
+
+        d = json.loads(rec.FinalResult())
+        print("finaltext", d["text"])
+        if(d["text"] == "cat"):
+            print("Correct")
+            os.system('echo "Correct" | festival --tts')
+        else:
+            handle_speak("Incorrect, try again")
         
 
     if joystick.get_vertical() < 450:
@@ -146,27 +181,27 @@ while True:
 
 
     
-    os.system('echo "Answer Now" | festival --tts')
+    #os.system('echo "Answer Now" | festival --tts')
     #record the users voice, set to last 10 seconds
-    os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
+    #os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
     #open the recorded file 
-    wf = wave.open("recorded_mono.wav", "rb")
+    #wf = wave.open("recorded_mono.wav", "rb")
     #store vosk model
-    model = Model("model")
-    rec = KaldiRecognizer(model, wf.getframerate())
+    #model = Model("model")
+    #rec = KaldiRecognizer(model, wf.getframerate())
 
-    while True:
-        data = wf.readframes(4000)
-        if len(data) == 0:
-            break
-        rec.AcceptWaveform(data)
+    #while True:
+        #data = wf.readframes(4000)
+        #if len(data) == 0:
+         #   break
+        #rec.AcceptWaveform(data)
             #res = json.loads(rec.Result())
             #print ("Text:", res['text'])
           
-    d = json.loads(rec.FinalResult())
-    print("finaltext", d["text"])
-    if(d["text"] == "cat"):
-        print("Correct")
+    #d = json.loads(rec.FinalResult())
+    #print("finaltext", d["text"])
+    #if(d["text"] == "cat"):
+     #   print("Correct")
 
     time.sleep(0.5)
 
