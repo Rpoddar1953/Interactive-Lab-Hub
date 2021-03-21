@@ -101,13 +101,22 @@ joystick = qwiic_joystick.QwiicJoystick()
 joystick.begin()
 
 
-os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav recorded_mono.wav')
+#os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav recorded_mono.wav')
 
 wf = wave.open("recorded_mono.wav", "rb")
 
 model = Model("model")
 # You can also specify the possible word list
-rec = KaldiRecognizer(model, wf.getframerate(), "zero oh one two three four five six seven eight nine [unk]")
+rec = KaldiRecognizer(model, 16000)
+
+#while True:
+#    data = wf.readframes(4000)
+#    if len(data) == 0:
+#        break
+#    rec.AcceptWaveform(data)
+
+#d = json.loads(rec.FinalResult())
+#print(d["text"])
 
 
 while True:
@@ -152,13 +161,39 @@ while True:
         os.system('echo "Riddle 4" | festival --tts')
 
 
-    data = wf.readframes(4000)
-    if len(data) == 0:
-        break
-    rec.AcceptWaveform(data)
+    #data = wf.readframes(4000)
+    #if len(data) == 0:
+     #   break
+    #rec.AcceptWaveform(data)
+    #d = json.loads(rec.FinalResult())
+    #print(d["text"])
 
+    #os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav recorded_mono.wav')
+
+    #wf = wave.open("recorded_mono.wav", "rb")
+
+    #model = Model("model")
+    # You can also specify the possible word list
+    #rec = KaldiRecognizer(model, wf.getframerate())
+
+    while True:
+        data = wf.readframes(4000)
+        if len(data) == 0:
+            print("len data == 0")
+            break
+        if rec.AcceptWaveform(data):
+            res = json.loads(rec.Result())
+            print ("Text:", res['text'])
+            print("in accept wave form")
+        print("in recording while loop")
+        
+    
     d = json.loads(rec.FinalResult())
-    print(d["text"])
+    print("finaltext", d["text"])
+    print("out of while loop")
 
 
-    time.sleep(0.1)
+    time.sleep(0.5)
+
+
+
