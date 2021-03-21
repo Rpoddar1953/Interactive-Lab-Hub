@@ -188,7 +188,7 @@ while True:
             if(d["text"] == "two"):
                 print("Correct")
                 handle_speak("Correct")
-                door1 = 1
+                door2 = 1
             else:
                 handle_speak("Incorrect, try again")
         else:
@@ -214,7 +214,7 @@ while True:
             if(d["text"] == "two"):
                 print("Correct")
                 handle_speak("Correct")
-                door1 = 1
+                door3 = 1
             else:
                 handle_speak("Incorrect, try again")
         else:
@@ -240,7 +240,7 @@ while True:
             if(d["text"] == "two"):
                 print("Correct")
                 handle_speak("Correct")
-                door1 = 1
+                door4 = 1
             else:
                 handle_speak("Incorrect, try again")
         else:
