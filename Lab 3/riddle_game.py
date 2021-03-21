@@ -143,7 +143,7 @@ while True:
         main_image = main_image.convert('RGB')
         main_image = main_image.resize((width, height), Image.BICUBIC)
         disp.image(main_image, rotation)
-        os.system('echo "Welcome to puzzle bot! You must solve 4 riddles to win. Use the joystick to navigate to each riddle. Remember to say your answer loudly and directly into the mike. Good luck!" | festival --tts')
+        handle_speak("Welcome to puzzle bot! You must solve 4 riddles to win. Use the joystick to navigate to each riddle. Remember to say your answer loudly and directly into the mike. Good luck!")
 
     if joystick.get_horizontal() > 510:
         if(door1 == 0):
@@ -152,6 +152,33 @@ while True:
             door_image = door_image.resize((width, height), Image.BICUBIC)
             disp.image(door_image, rotation)
             handle_speak("Riddle 1")
+            handle_speak("You have ten seconds to answer")
+
+            #record the users voice, set to last 10 seconds
+            os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
+            
+            d = check_userinput()
+            if(d["text"] == "two"):
+                print("Correct")
+                handle_speak("Correct")
+                door1 = 1
+            else:
+                handle_speak("Incorrect, try again")
+        else:
+            door_image = Image.open("images/opendoor1.jpeg")
+            door_image = door_image.convert('RGB')
+            door_image = door_image.resize((width, height), Image.BICUBIC)
+            disp.image(door_image, rotation)
+            handle_speak("Riddle 1 has been solved")
+        
+
+    if joystick.get_vertical() < 450:
+        if(door2 == 0):
+            door_image = Image.open("images/door2.jpeg")
+            door_image = door_image.convert('RGB')
+            door_image = door_image.resize((width, height), Image.BICUBIC)
+            disp.image(door_image, rotation)
+            handle_speak("Riddle 2")
             handle_speak("You have ten seconds to answer")
 
             #record the users voice, set to last 10 seconds
@@ -165,33 +192,63 @@ while True:
             else:
                 handle_speak("Incorrect, try again")
         else:
-            door_image = Image.open("images/opendoor.jpeg")
+            door_image = Image.open("images/opendoor2.jpeg")
             door_image = door_image.convert('RGB')
             door_image = door_image.resize((width, height), Image.BICUBIC)
             disp.image(door_image, rotation)
-            handle_speak("Riddle 1 has been solved")
-        
-
-    if joystick.get_vertical() < 450:
-        door_image = Image.open("images/door2.jpeg")
-        door_image = door_image.convert('RGB')
-        door_image = door_image.resize((width, height), Image.BICUBIC)
-        disp.image(door_image, rotation)
-        os.system('echo "Riddle 2" | festival --tts')
+            handle_speak("Riddle 2 has been solved")
 
     if joystick.get_horizontal() < 100:
-        door_image = Image.open("images/door3.jpeg")
-        door_image = door_image.convert('RGB')
-        door_image = door_image.resize((width, height), Image.BICUBIC)
-        disp.image(door_image, rotation)
-        os.system('echo "Riddle 3" | festival --tts')
+        if(door3 == 0):
+            door_image = Image.open("images/door3.jpeg")
+            door_image = door_image.convert('RGB')
+            door_image = door_image.resize((width, height), Image.BICUBIC)
+            disp.image(door_image, rotation)
+            handle_speak("Riddle 3")
+            handle_speak("You have ten seconds to answer")
+
+            #record the users voice, set to last 10 seconds
+            os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
+
+            d = check_userinput()
+            if(d["text"] == "two"):
+                print("Correct")
+                handle_speak("Correct")
+                door1 = 1
+            else:
+                handle_speak("Incorrect, try again")
+        else:
+            door_image = Image.open("images/opendoor3.jpeg")
+            door_image = door_image.convert('RGB')
+            door_image = door_image.resize((width, height), Image.BICUBIC)
+            disp.image(door_image, rotation)
+            handle_speak("Riddle 3 has been solved")
 
     if joystick.get_vertical() > 1000:
-        door_image = Image.open("images/door4.jpeg")
-        door_image = door_image.convert('RGB')
-        door_image = door_image.resize((width, height), Image.BICUBIC)
-        disp.image(door_image, rotation)
-        os.system('echo "Riddle 4" | festival --tts')
+        if(door4 == 0):
+            door_image = Image.open("images/door4.jpeg")
+            door_image = door_image.convert('RGB')
+            door_image = door_image.resize((width, height), Image.BICUBIC)
+            disp.image(door_image, rotation)
+            handle_speak("Riddle 4")
+            handle_speak("You have ten seconds to answer")
+
+            #record the users voice, set to last 10 seconds
+            os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
+
+            d = check_userinput()
+            if(d["text"] == "two"):
+                print("Correct")
+                handle_speak("Correct")
+                door1 = 1
+            else:
+                handle_speak("Incorrect, try again")
+        else:
+            door_image = Image.open("images/opendoor4.jpeg")
+            door_image = door_image.convert('RGB')
+            door_image = door_image.resize((width, height), Image.BICUBIC)
+            disp.image(door_image, rotation)
+            handle_speak("Riddle 4 has been solved")
 
     time.sleep(0.5)
 
