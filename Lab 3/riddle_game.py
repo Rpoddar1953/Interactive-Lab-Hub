@@ -158,7 +158,7 @@ while True:
             os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
 
             d = check_userinput()
-            if(d["text"] == "cat"):
+            if(d["text"] == "two"):
                 print("Correct")
                 handle_speak("Correct")
                 door1 = 1
