@@ -101,23 +101,6 @@ joystick = qwiic_joystick.QwiicJoystick()
 joystick.begin()
 
 
-#os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav recorded_mono.wav')
-
-wf = wave.open("recorded_mono.wav", "rb")
-
-model = Model("model")
-# You can also specify the possible word list
-rec = KaldiRecognizer(model, 16000)
-
-#while True:
-#    data = wf.readframes(4000)
-#    if len(data) == 0:
-#        break
-#    rec.AcceptWaveform(data)
-
-#d = json.loads(rec.FinalResult())
-#print(d["text"])
-
 
 while True:
     # Draw a black filled box to clear the image.
@@ -138,6 +121,7 @@ while True:
         door_image = door_image.resize((width, height), Image.BICUBIC)
         disp.image(door_image, rotation)
         os.system('echo "Riddle 1" | festival --tts')
+        
 
     if joystick.get_vertical() < 450:
         door_image = Image.open("images/door2.jpeg")
@@ -161,37 +145,28 @@ while True:
         os.system('echo "Riddle 4" | festival --tts')
 
 
-    #data = wf.readframes(4000)
-    #if len(data) == 0:
-     #   break
-    #rec.AcceptWaveform(data)
-    #d = json.loads(rec.FinalResult())
-    #print(d["text"])
-
-    #os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav recorded_mono.wav')
-
-    #wf = wave.open("recorded_mono.wav", "rb")
-
-    #model = Model("model")
-    # You can also specify the possible word list
-    #rec = KaldiRecognizer(model, wf.getframerate())
+    
+    os.system('echo "Answer Now" | festival --tts')
+    #record the users voice, set to last 10 seconds
+    os.system('arecord -D hw:2,0 -f cd -c1 -r 48000 -d 10 -t wav recorded_mono.wav')
+    #open the recorded file 
+    wf = wave.open("recorded_mono.wav", "rb")
+    #store vosk model
+    model = Model("model")
+    rec = KaldiRecognizer(model, wf.getframerate())
 
     while True:
         data = wf.readframes(4000)
         if len(data) == 0:
-            print("len data == 0")
             break
-        if rec.AcceptWaveform(data):
-            res = json.loads(rec.Result())
-            print ("Text:", res['text'])
-            print("in accept wave form")
-        print("in recording while loop")
-        
-    
+        rec.AcceptWaveform(data)
+            #res = json.loads(rec.Result())
+            #print ("Text:", res['text'])
+          
     d = json.loads(rec.FinalResult())
     print("finaltext", d["text"])
-    print("out of while loop")
-
+    if(d["text"] == "cat"):
+        print("Correct")
 
     time.sleep(0.5)
 
