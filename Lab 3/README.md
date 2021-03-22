@@ -6,10 +6,9 @@ In this lab, we want you to practice wizarding an interactive device as discusse
 
 # Contributions
 I worked with Shivani Doshi (sgd73) for the entirety of this lab. We came up with PuzzleBot together, coded everything in parallel and made the video with each other. Here is a link to her lab 3 repo: https://github.com/shivanidoshi26/Interactive-Lab-Hub/blob/Spring2021/Lab%203/README.md. We also made use of the following tools online:
-
-Canva to build the sketch of our idea
-iMovie to edit our video
-For the riddles: https://parade.com/947956/parade/riddles/
+* Canva to build the sketch of our idea
+* iMovie to edit our video
+* For the riddles: https://parade.com/947956/parade/riddles/
 
 ## Text to Speech and Speech to Text
 
