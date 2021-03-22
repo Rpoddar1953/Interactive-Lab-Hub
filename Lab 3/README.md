@@ -122,9 +122,9 @@ Because we tried to make our system completely autonomous, we didn't technically
 ![Image](images/log.png)
 
 ## Test the system
-Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.) We tested our system with Snigdha Singhania and Anu Deodhar. 
+Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)  
 
-Here are some pictures of their interactions:
+We tested our system with Snigdha Singhania and Anu Deodhar. Here are some pictures of their interactions:
 
 <img src="images/a1.jpg" width="250" height="300"> <img src="images/a2.jpg" width="250" height="300"> <img src="images/a3.jpg" width="250" height="300"> <img src="images/a4.jpg" width="250" height="300"> <img src="images/a5.jpg" width="250" height="300">
 
