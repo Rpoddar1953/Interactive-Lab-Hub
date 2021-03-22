@@ -4,6 +4,12 @@
 
 In this lab, we want you to practice wizarding an interactive device as discussed in class. We will focus on audio as the main modality for interaction but there is no reason these general techniques can't extend to video, haptics or other interactive mechanisms. In fact, you are welcome to add those to your project if they enhance your design.
 
+# Contributions
+I worked with Shivani Doshi (sgd73) for the entirety of this lab. We came up with PuzzleBot together, coded everything in parallel and made the video with each other. Here is a link to her lab 3 repo: https://github.com/shivanidoshi26/Interactive-Lab-Hub/blob/Spring2021/Lab%203/README.md. We also made use of the following tools online:
+
+Canva to build the sketch of our idea
+iMovie to edit our video
+For the riddles: https://parade.com/947956/parade/riddles/
 
 ## Text to Speech and Speech to Text
 
@@ -83,6 +89,24 @@ The system should:
 * require participants to speak to it. 
 
 *Document how the system works*
+These are all the features we incorporated/the devices we used for our wizard interaction:
+
+Raspberry pi + power supply
+* We used a speaker - connected via an AUX cord - to communicate all the instructions, the riddles and any other relevant remarks to the user
+* We used the Adafruit Mini PiTFT screen to display the images of the welcome page, the closed/opened doors and the congratulations message at the end
+* We used the proximity sensor to detect when someone is passing by, so as to activate the game and encourage them to play along
+* We used the joystick to navigate to each of the different rooms and solve the corresponding riddle
+* We used the red and green LED buttons to visually indicate to the user whether they got the answer right or wrong
+* We used the mic to capture the user input, so that we could verify if the user's answer was right or not - this was fully automated (not wizarded) and there was no real need for an external controller
+
+This is what the sequence of actions would be:
+* A user walks by the device which triggers the proximity sensor
+* The device greets the user and tells them how to play the game via the speaker - the goal is to solve 4 riddles to win
+* The user uses the joystick to navigate to one of the 4 riddles, which is communicated via the speaker to the user
+* The user has 10 seconds to come up with an answer and speak it directly into the mic
+* If it's correct, the graphic on the screen changes from a closed door to an open one and the green LED turns on for a short while; if the user comes back to a door for a riddle that has already been solved, the system displays the corresponding open door graphic and tells them the riddle has already been solved
+* If it's incorrect, the user is instructed on how to replay the question to try again and the red LED turns on for a short while
+* Once the user answers each of the 4 riddles correctly, they are greeted with a "Congratulations!" graphic on the screen and a short congratulatory message from the system
 
 *Include videos or screencaptures of both the system and the controller.*
 Link to prototype video: https://drive.google.com/file/d/1if4Wd0Cvh_kE6f_orL4BXskNBZukgOEU/view?usp=sharing
