@@ -148,7 +148,7 @@ Didn't work well:
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
-* We could log all of the user's answers to the questions, which could help us determine how long to wait before analyzing their answer. 
-* We could also log the directions that the user toggles the joy stick, which can help streamline the navigation.
-* Next time we could use the gesture sensor to enhance the interaction and capture how close or far the user tends to stand to the mic. 
+* We could log and store all of the user's answers to the questions, which could help us identify if there are any issues responding to the bot as well as determine how long the bot should wait before analyzing their answer. 
+* We could also store the directions that the user toggles the joy stick, which can help streamline the navigation.
+* Next time we could use the gesture sensor to enhance the interaction and capture how close or far the user tends to stand to the mic, in order to make sure their audio is being captured. 
 
