@@ -67,6 +67,7 @@ Create a system that runs on the Raspberry Pi that takes in one or more sensors 
 ## Prep for Part 2
 
 1. Sketch ideas for what you'll work on in lab on Wednesday.
+I worked on this entire lab with Shivani Doshi(sgd73). We brainstormed together and liked the idea of doing something similar to an escape room where the user has to solve riddles in order to open doors. We want to use a joy stick to move between the different riddles. 
 
 ## Share your idea sketches with Zoom Room mates and get feedback
 
@@ -86,7 +87,7 @@ The system should:
 *Include videos or screencaptures of both the system and the controller.*
 
 ## Test the system
-Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
+Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.) We tested our system with Snigdha Singhania and Anu Deodhar. 
 
 Answer the following:
 
@@ -115,5 +116,7 @@ Didn't work well:
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
-
+* We could log all of the user's answers to the questions, which could help us determine how long to wait before analyzing their answer. 
+* We could also log the directions that user toggles the joy stick, which can help streamline the navigation.
+* Next time we could use the gesture sensor to enhance the interaction and capture how close or far the user tends to stand to the mic. 
 
