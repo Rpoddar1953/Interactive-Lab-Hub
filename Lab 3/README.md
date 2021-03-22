@@ -72,6 +72,7 @@ Create a system that runs on the Raspberry Pi that takes in one or more sensors 
 ## Prep for Part 2
 
 1. Sketch ideas for what you'll work on in lab on Wednesday.
+
 I worked on this entire lab with Shivani Doshi(sgd73). We brainstormed together and liked the idea of doing something similar to an escape room where the user has to solve riddles in order to open doors. We want to use a joy stick to move between the different riddles. 
 
 Here is a sketch of the idea:
@@ -80,6 +81,7 @@ Here is a sketch of the idea:
 ## Share your idea sketches with Zoom Room mates and get feedback
 
 *what was the feedback? Who did it come from?*
+
 Sam Lee thought the idea of a riddle or puzzle game was fun. She had some good ideas about navigation and using the LED lights to indicate correct answers. 
 Niki Agrawal also thought the riddle game was an interesting idea.
 
@@ -91,6 +93,7 @@ The system should:
 * require participants to speak to it. 
 
 *Document how the system works*
+
 These are all the features we incorporated/the devices we used for our wizard interaction:
 
 Raspberry pi + power supply
@@ -111,6 +114,7 @@ This is what the sequence of actions would be:
 * Once the user answers each of the 4 riddles correctly, they are greeted with a "Congratulations!" graphic on the screen and a short congratulatory message from the system
 
 *Include videos or screencaptures of both the system and the controller.*
+
 Link to prototype video: https://drive.google.com/file/d/1if4Wd0Cvh_kE6f_orL4BXskNBZukgOEU/view?usp=sharing
 
 Because we tried to make our system completely autonomous, we didn't technically have a controller. However during the interaction we monitored the progress using logs in the terminal, which showed when the system was recording the user's voice and what it interpreted the speech as.
