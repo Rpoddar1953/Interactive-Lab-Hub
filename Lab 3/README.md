@@ -75,6 +75,9 @@ Create a system that runs on the Raspberry Pi that takes in one or more sensors 
 1. Sketch ideas for what you'll work on in lab on Wednesday.
 I worked on this entire lab with Shivani Doshi(sgd73). We brainstormed together and liked the idea of doing something similar to an escape room where the user has to solve riddles in order to open doors. We want to use a joy stick to move between the different riddles. 
 
+Here is a sketch of the idea:
+![Image](images/sketch.png)
+
 ## Share your idea sketches with Zoom Room mates and get feedback
 
 *what was the feedback? Who did it come from?*
@@ -111,6 +114,10 @@ This is what the sequence of actions would be:
 *Include videos or screencaptures of both the system and the controller.*
 Link to prototype video: https://drive.google.com/file/d/1if4Wd0Cvh_kE6f_orL4BXskNBZukgOEU/view?usp=sharing
 
+Because we tried to make our system completely autonomous, we didn't technically have a controller. However during the interaction we monitored the progress using logs in the terminal, which showed when the system was recording the user's voice and what it interpreted the speech as.
+
+![Image](images/log.png)
+
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.) We tested our system with Snigdha Singhania and Anu Deodhar. 
 
@@ -137,11 +144,11 @@ Didn't work well:
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
 * There need to be more visual cues provided by the system to explain how to use the different sensors and widgets, in order to limit the amount of prior explanation needed.
-* If using a system that interprets the user input on its own, the way the speech to text function was for us, then it needs to be more robust and applicable to a vairety of situations (i.e., someone having an accent). 
+* If using a system that interprets the user input on its own, the way the speech to text function was for us, then it needs to be more robust and applicable to a variety of situations (i.e., someone having an accent). 
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 * We could log all of the user's answers to the questions, which could help us determine how long to wait before analyzing their answer. 
-* We could also log the directions that user toggles the joy stick, which can help streamline the navigation.
+* We could also log the directions that the user toggles the joy stick, which can help streamline the navigation.
 * Next time we could use the gesture sensor to enhance the interaction and capture how close or far the user tends to stand to the mic. 
 
