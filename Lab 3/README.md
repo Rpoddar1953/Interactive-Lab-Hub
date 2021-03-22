@@ -1,4 +1,4 @@
-# You're a wizard, [Student Name Here]
+# You're a wizard, Ritika 
 
 <img src="https://pbs.twimg.com/media/Cen7qkHWIAAdKsB.jpg" height="400">
 
@@ -71,6 +71,8 @@ Create a system that runs on the Raspberry Pi that takes in one or more sensors 
 ## Share your idea sketches with Zoom Room mates and get feedback
 
 *what was the feedback? Who did it come from?*
+Sam Lee thought the idea of a riddle or puzzle game was fun. She had some good ideas about navigation and using the LED lights to indicate correct answers. 
+Niki Agrawal also thought the riddle game was an interesting idea.
 
 ## Prototype your system
 
@@ -89,18 +91,29 @@ Try to get at least two people to interact with your system. (Ideally, you would
 Answer the following:
 
 ### What worked well about the system and what didn't?
-*your answer here*
+Worked Well:
+* The joy stick navigation worked well, both Snigdha and Anu understood how to use it to view the doors with minimal explanation.
+* Both participants were able to work through the entire riddle game.
+* Snigdha thought the text to speech voice used for the instructions and riddles was very clear and easy to understand.
+
+Didn't work well:
+* The voice to text recognition for checking the user's answers to the riddles was not consistent. It either didn't recognzie someone had spoken because the mic didn't pick it up, or didn't understand the answer because of the participant's accent. 
+* The voice to text function took a long time to run, which meant that the participants were often waiting to see if their answer was correct.
 
 ### What worked well about the controller and what didn't?
+We tried to make our system completely autonomous so that it spoke instructions and analyzed user input on its own, while we monitored the progress though logs in the terminal as the user interacted with the system. 
 
-*your answer here*
+Worked well:
+* We could see what the speech to text interepreted the user's answer as, and see when there were issues with the interpretations. 
+
+Didn't work well:
+* Because there was no way for us to directly control the system, only monitor it, we couldn't interject when there was an issue without talking to the participant directly and interrupting the interaction. This broke the sense of autonomy that the system had, and broke the flow of the interaction. 
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
-
-*your answer here*
+* There need to be more visual cues provided by the system to explain how to use the different sensors and widgets, in order to limit the amount of prior explanation needed.
+* If using a system that interprets the user input on its own, the way the speech to text function was for us, then it needs to be more robust and applicable to a vairety of situations (i.e., someone having an accent). 
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
-*your answer here*
 
