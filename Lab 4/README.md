@@ -86,6 +86,12 @@ Banana 6 touched!
 
 *\*Some students have noted that their banana's look noticeably different from the ones presented in this demo. We firmly reject the accusation that these are not in fact banana's but Twizzlers™. Due to the challenges of remote teaching we cannot debug banana's at this time. We suggest you bring these issues up with the university or your local produce representative*
 
+**I tested out the capacity sensor by drawing two buttons on a piece of paper and attaching the electric tape to the back to connect the drawing to the alligator clips.**
+
+![Image](images/capacitytest1.jpg)
+![Image](images/capacitytest.jpg)
+![Image](images/terminaloutput.png)
+
 ### Part B
 ### OLED screen
 
