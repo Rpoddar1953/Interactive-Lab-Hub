@@ -1,4 +1,4 @@
-# Ph-UI!!!
+# Ph-UI!!! Note: Approved to be submitted by EOD Monday 4/5 by Professor Wendy Ju
 
 For lab this week, we focus on the prototyping the physical look and feel of the device. _Make sure you read all the instructions and understand the whole of the laboratory activity before starting!_
 
