@@ -31,7 +31,10 @@ while True:
             print("6 touched")
 
         if touched[1] and touched[10]:
-            handle_speak("touched a word")
+            handle_speak("judiciousness means good judgement")
+
+        if touched[4] and touched[6]:
+            handle_speak("I apologize, he said unapologetically, if I am not being clear. But for your selection of wine tonight there are only two options")
 
             
     time.sleep(0.25)  # Small delay to keep from spamming output messages.
