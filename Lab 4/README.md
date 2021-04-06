@@ -138,6 +138,8 @@ Make a paper display for your project that communicates the state of the Pi and 
 
 My idea was to create an a device that can attach to any physical book and read outloud from the book as well as define words from the book. I thought this might be beneficial to use for people who prefer physical books instead of electronic copies. It might also be benefical for people who are blind or for children learning to read. 
 
+![Image](images/sketch.jpg)
+
 My paper prototype includes:
 * A flat area on which the book can sit on
 * A screen that tells you what book you are reading an what page you are on
