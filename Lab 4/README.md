@@ -136,9 +136,23 @@ Make a paper display for your project that communicates the state of the Pi and 
  
 **a. Document the design for your paper display.** (e.g. if you had to make it again from scratch, what information would you need?). Include interim iterations (or at least tell us about them).
 
+My idea was to create an a device that can attach to any physical book and read outloud from the book as well as define words from the book. I thought this might be beneficial to use for people who prefer physical books instead of electronic copies. It might also be benefical for people who are blind or for children learning to read. 
+
+My paper prototype includes:
+* A flat area on which the book can sit on
+* A screen that tells you what book you are reading an what page you are on
+* A button to define a word
+* A button to read a sentence outloud
+
+
 **b. Make a video of your paper display in action.**
 
+Here is a video where I explain my paper prototype: https://drive.google.com/file/d/1Kmd6Tmdv391CoiQYNfok6ex1KDjBQNYM/view?usp=sharing
+
 **c. Explain the rationale for the design.** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
+
+I made the base of the prototype large enough that it can fit a standard novel on it. I wanted the buttons and screens to be on one side so that it wouldn't feel too bulky. 
+
 
 ### Part D
 ### Materiality
@@ -149,7 +163,12 @@ Design a system with the Pi and anything from your kit with a focus on form, and
 
 **a. document the material prototype.** Include candidates that were considered even if they were set aside later.
 
+Here is a video where I explain the internal system for the prototype: https://drive.google.com/file/d/1zuc1Eusbf0siPBi29H9sADoYSnCvIAvY/view?usp=sharing
+
 **b. explain the selection.**
+
+I wanted to use the capacity sensor in order to mimic the ability of selecting anything on a page and having the ereader read it outloud or define the word. Since I currently don't have the ability to scan in the page and interpret it, I used the electrical tape on top of the paper as a sensor for the user's finger. I also used the electrical tape and conductive fabric to make the read and define buttons. 
+
 
 ### Part 2.
 
@@ -163,4 +182,6 @@ Reiterating:
 4. "Acts like" prototypes: videos/storyboards/other means of showing how a person would interact with the device
 5. Submit these in the lab 4 folder of your class [Github page], either as links or uploaded files. Each group member should post their own copy of the work to their own Lab Hub, even if some of the work is the same for each person in the group.
 
+Here is an explanation of how my final prototype looks like and works: https://drive.google.com/file/d/1LbNQxqDHMAdda7y2TXFCDz2ZzjOOFYL5/view?usp=sharing
 
+And here is a video acting out an interaction: https://drive.google.com/file/d/1DgQnT2Wtth7p9yBSTYGT_aZsjU3x_9Ys/view?usp=sharing
