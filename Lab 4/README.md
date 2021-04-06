@@ -144,6 +144,7 @@ My paper prototype includes:
 * A button to define a word
 * A button to read a sentence outloud
 
+![Image](images/paperprototype1.jpg)
 
 **b. Make a video of your paper display in action.**
 
