@@ -182,6 +182,10 @@ Reiterating:
 4. "Acts like" prototypes: videos/storyboards/other means of showing how a person would interact with the device
 5. Submit these in the lab 4 folder of your class [Github page], either as links or uploaded files. Each group member should post their own copy of the work to their own Lab Hub, even if some of the work is the same for each person in the group.
 
+Here is my final prototype for my ereader:
+![Image](images/finalprototype2.jpg)
+![Image](images/finalprototype1.jpg)
+
 Here is an explanation of how my final prototype looks like and works: https://drive.google.com/file/d/1LbNQxqDHMAdda7y2TXFCDz2ZzjOOFYL5/view?usp=sharing
 
 And here is a video acting out an interaction: https://drive.google.com/file/d/1DgQnT2Wtth7p9yBSTYGT_aZsjU3x_9Ys/view?usp=sharing
