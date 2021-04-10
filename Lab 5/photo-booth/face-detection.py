@@ -38,7 +38,7 @@ else:
       img = cv2.imread("../data/test.jpg")
       print("Using default image.")
 
-tookphoto = 0
+i = 0
 while(True):
    if webCam:
       ret, img = cap.read()
@@ -46,19 +46,13 @@ while(True):
    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-   
-   if len(faces) != 0 and tookphoto == 0:
-       os.system('raspistill -o myphoto.jpg')
-       tookphoto = 1
-
    for (x,y,w,h) in faces:
        img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
-       roi_gray = gray[y:y+h, x:x+w]
-       roi_color = img[y:y+h, x:x+w]
-       eyes = eye_cascade.detectMultiScale(roi_gray)
-       for (ex,ey,ew,eh) in eyes:
-           cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
-     
+       cv2.putText(img, "Wanna take a photo?",(50,50),cv2.FONT_HERSHEY_SIMPLEX,1,(255,0,0),2,cv2.LINE_AA)
+       if buttonR.is_button_pressed():
+           cv2.imwrite('attempted' + str(i) + '.jpg',img)
+           i += 1
+
    if webCam:
       cv2.imshow('face-detection (press q to quit.)',img)
       if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -69,4 +63,3 @@ while(True):
 
 cv2.imwrite('faces_detected.jpg',img)
 cv2.destroyAllWindows()
-
