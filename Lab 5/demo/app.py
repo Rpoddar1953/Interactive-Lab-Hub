@@ -16,7 +16,6 @@ import signal
 import sys
 from queue import Queue
 
-from scipy.signal import find_peaks
  
 i2c = busio.I2C(board.SCL, board.SDA)
 mpu = adafruit_mpu6050.MPU6050(i2c)
@@ -28,6 +27,16 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 audio_stream = Popen("/usr/bin/cvlc alsa://"+hardware+" --sout='#transcode{vcodec=none,acodec=mp3,ab=256,channels=2,samplerate=44100,scodec=none}:http{mux=mp3,dst=:8080/}' --no-sout-all --sout-keep", shell=True)
 
+num = 10
+i = 0
+currSumX = 0
+currSumY = 0
+currSumZ = 0
+
+pre = (-float('inf'), -float('inf'), -float('inf'))
+cur = (-float('inf'), -float('inf'), -float('inf'))
+thresh = 2.0
+peakCtr = 0
 
 @socketio.on('speak')
 def handel_speak(val):
@@ -38,36 +47,54 @@ def test_connect():
     print('connected')
     emit('after connect',  {'data':'Lets dance'})
 
-
-totalx = []
-totaly = []
-totalz = []
-n = 0
 @socketio.on('ping-gps')
 def handle_message(val):
     # print(mpu.acceleration)
-    emit('pong-gps', mpu.acceleration) 
-    #if mpu.acceleration[0] > 2:
-        #print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (mpu.acceleration))
+    emit('pong-gps', mpu.acceleration)
 
-    #print(find_peaks(mpu.acceleration[0], 5))
-    global totalx = []
-    global totaly = []
-    global totalz = []
+    currAccel = mpu.acceleration
 
+    # THRESHOLD DETECTION
+    if currAccel[0] > 10.0:
+        print("-----------------X-direction-----------------")
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+    if currAccel[1] > 5.0:
+        print("-----------------Y-direction-----------------")
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+    if currAccel[2] > 11.0:
+        print("-----------------Z-direction-----------------")
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
 
-    n = n+1
-    totalx.append(mpu.acceleration[0])
-    totaly.append(mpy.acceleration[1])
-    totalz.append(mpu.acceleration[2])
+    # AVERAGE
+    global i
+    global num
+    global currSumX
+    global currSumY
+    global currSumZ
 
-    if n > 50:
-        Xpeaks, _ = find_peaks(totalx)
-        print("peaks for x", totalx[Xpeaks])
+    if i < num:
+        i += 1
+        currSumX += currAccel[0]
+        currSumY += currAccel[1]
+        currSumZ += currAccel[2]
+    else:
+        averageSum = (currSumX/num, currSumY/num, currSumZ/num)
+        print("Average: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (averageSum))
+        i = 0
+        currSumX = 0
+        currSumY = 0
+        currSumZ = 0
 
-
-
-
+    # PEAK DETECTION
+    global pre
+    global cur
+    global peakCtr
+    
+    pre = cur
+    cur = currAccel
+    if cur[0] - pre[0] > thresh:
+        print("PEAK! ", peakCtr)
+        peakCtr += 1
 
 @app.route('/')
 def index():
@@ -83,5 +110,4 @@ signal.signal(signal.SIGINT, signal_handler)
 
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0', port=5000)
-
 
