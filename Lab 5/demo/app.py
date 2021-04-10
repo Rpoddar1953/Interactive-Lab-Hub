@@ -16,6 +16,7 @@ import signal
 import sys
 from queue import Queue
 
+from scipy.signal import find_peaks
  
 i2c = busio.I2C(board.SCL, board.SDA)
 mpu = adafruit_mpu6050.MPU6050(i2c)
@@ -27,6 +28,7 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 audio_stream = Popen("/usr/bin/cvlc alsa://"+hardware+" --sout='#transcode{vcodec=none,acodec=mp3,ab=256,channels=2,samplerate=44100,scodec=none}:http{mux=mp3,dst=:8080/}' --no-sout-all --sout-keep", shell=True)
 
+
 @socketio.on('speak')
 def handel_speak(val):
     call(f"espeak '{val}'", shell=True)
@@ -36,10 +38,34 @@ def test_connect():
     print('connected')
     emit('after connect',  {'data':'Lets dance'})
 
+
+totalx = []
+totaly = []
+totalz = []
+n = 0
 @socketio.on('ping-gps')
 def handle_message(val):
     # print(mpu.acceleration)
     emit('pong-gps', mpu.acceleration) 
+    #if mpu.acceleration[0] > 2:
+        #print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (mpu.acceleration))
+
+    #print(find_peaks(mpu.acceleration[0], 5))
+    global totalx = []
+    global totaly = []
+    global totalz = []
+
+
+    n = n+1
+    totalx.append(mpu.acceleration[0])
+    totaly.append(mpy.acceleration[1])
+    totalz.append(mpu.acceleration[2])
+
+    if n > 50:
+        Xpeaks, _ = find_peaks(totalx)
+        print("peaks for x", totalx[Xpeaks])
+
+
 
 
 
