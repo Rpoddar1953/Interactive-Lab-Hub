@@ -10,6 +10,8 @@ In Lab 5 part 1, we focus on detecting and sense-making.
 
 In Lab 5 part 2, we'll incorporate interactive responses.
 
+**I worked on this lab with Shivani Doshi**
+
 
 ## Prep
 
