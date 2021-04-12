@@ -95,6 +95,7 @@ Using the set up from the [Lab 3 demo](https://github.com/FAR-Lab/Interactive-La
 **3. Set up peak detection** Can you identify when your signal reaches a peak and then goes down?
 
 Include links to your code here, and put the code for these in your repo--they will come in handy later.
+**Code can be found here: Lab 5/demo/app.py**
 
 #### Teachable Machines (beta, optional)
 Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) might look very simple.  However, its simplicity is very useful for experimenting with the capabilities of this technology.
@@ -120,6 +121,7 @@ Pick one of the models you have tried, pick a class of objects, and experiment w
 This can be as simple as the boat detector earlier.
 Try out different interactions outputs and inputs.
 **Describe and detail the interaction, as well as your experimentation.**
+**We experimented with the face detection model and designed a photo booth. When the face detection detects a face, it asks the user if they want to take a photo. The user can press the red button if they want to and the pi will save a copy of the image for them.**
 
 ### Part C
 ### Test the interaction prototype
