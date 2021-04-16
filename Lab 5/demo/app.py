@@ -27,6 +27,17 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 audio_stream = Popen("/usr/bin/cvlc alsa://"+hardware+" --sout='#transcode{vcodec=none,acodec=mp3,ab=256,channels=2,samplerate=44100,scodec=none}:http{mux=mp3,dst=:8080/}' --no-sout-all --sout-keep", shell=True)
 
+num = 10
+i = 0
+currSumX = 0
+currSumY = 0
+currSumZ = 0
+
+pre = (-float('inf'), -float('inf'), -float('inf'))
+cur = (-float('inf'), -float('inf'), -float('inf'))
+thresh = 2.0
+peakCtr = 0
+
 @socketio.on('speak')
 def handel_speak(val):
     call(f"espeak '{val}'", shell=True)
@@ -39,9 +50,51 @@ def test_connect():
 @socketio.on('ping-gps')
 def handle_message(val):
     # print(mpu.acceleration)
-    emit('pong-gps', mpu.acceleration) 
+    emit('pong-gps', mpu.acceleration)
 
+    currAccel = mpu.acceleration
 
+    # THRESHOLD DETECTION
+    if currAccel[0] > 10.0:
+        print("-----------------X-direction-----------------")
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+    if currAccel[1] > 5.0:
+        print("-----------------Y-direction-----------------")
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+    if currAccel[2] > 11.0:
+        print("-----------------Z-direction-----------------")
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+
+    # AVERAGE
+    global i
+    global num
+    global currSumX
+    global currSumY
+    global currSumZ
+
+    if i < num:
+        i += 1
+        currSumX += currAccel[0]
+        currSumY += currAccel[1]
+        currSumZ += currAccel[2]
+    else:
+        averageSum = (currSumX/num, currSumY/num, currSumZ/num)
+        print("Average: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (averageSum))
+        i = 0
+        currSumX = 0
+        currSumY = 0
+        currSumZ = 0
+
+    # PEAK DETECTION
+    global pre
+    global cur
+    global peakCtr
+    
+    pre = cur
+    cur = currAccel
+    if cur[0] - pre[0] > thresh:
+        print("PEAK! ", peakCtr)
+        peakCtr += 1
 
 @app.route('/')
 def index():
@@ -57,5 +110,4 @@ signal.signal(signal.SIGINT, signal_handler)
 
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0', port=5000)
-
 
