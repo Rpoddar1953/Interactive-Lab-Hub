@@ -284,6 +284,7 @@ Here is a short video to demonstrate the functionality we created with the face 
 
 
 Here is the final set up of our botany interaction:
+
 <img src="botany/setup1.jpg" height=350> <img src="botany/setup2.jpg" height=350>
 
 Here is a short video to demonstrate the functionality we created with the botanist. For our final version we updated our model to include more images of the plants in various different angles in order to help improve the classification performance.:
