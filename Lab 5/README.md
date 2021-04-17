@@ -10,7 +10,7 @@ In Lab 5 part 1, we focus on detecting and sense-making.
 
 In Lab 5 part 2, we'll incorporate interactive responses.
 
-**I worked on this lab with Shivani Doshi**
+**I worked on this lab with Shivani Doshi for the entirety of this lab, or code is the same. **
 
 
 ## Prep
@@ -92,9 +92,91 @@ Using the set up from the [Lab 3 demo](https://github.com/FAR-Lab/Interactive-La
 
 **1. Set up threshold detection** Can you identify when a signal goes above certain fixed values?
 
+This was the code that was written in demo/app.py (we added it directly into the handle_message() function):
+
+```
+# THRESHOLD DETECTION
+currAccel = mpu.acceleration
+if currAccel[0] > 10.0:
+    print("-----------------X-direction-----------------")
+    print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+if currAccel[1] > 5.0:
+    print("-----------------Y-direction-----------------")
+    print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+if currAccel[2] > 11.0:
+    print("-----------------Z-direction-----------------")
+    print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+```
+We picked random thresholds for the x, y and z direction. When the threshold is met, the current acceleration is printed out to the console.
+
 **2. Set up averaging** Can you average your signal in N-sample blocks? N-sample running average?
 
+This was the code that was written in demo/app.py (N was set to 10 in this example):
+
+```
+# AVERAGING
+global i
+global num
+global currSumX
+global currSumY
+global currSumZ
+
+if i < num:
+    i += 1
+    currSumX += currAccel[0]
+    currSumY += currAccel[1]
+    currSumZ += currAccel[2]
+else:
+    averageSum = (currSumX/num, currSumY/num, currSumZ/num)
+    print("Average: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (averageSum))
+    i = 0
+    currSumX = 0
+    currSumY = 0
+    currSumZ = 0
+```
+
+This was the initialization of the global variables, and was defined outside the scope of the handle_message() function:
+
+```
+num = 10
+i = 0
+currSumX = 0
+currSumY = 0
+currSumZ = 0
+```
+
 **3. Set up peak detection** Can you identify when your signal reaches a peak and then goes down?
+
+This was the code that was written in demo/app.py (we added it directly into the handle_message() function):
+
+```
+# PEAK DETECTION
+global pre
+global cur
+global peakCtr
+
+pre = cur
+cur = currAccel
+if cur[0] - pre[0] > thresh:
+    print("PEAK! ", peakCtr)
+    peakCtr += 1
+```
+
+This was the initialization of the global variables, and was defined outside the scope of the handle_message() function:
+
+```
+pre = (-float('inf'), -float('inf'), -float('inf'))
+cur = (-float('inf'), -float('inf'), -float('inf'))
+thresh = 2.0
+peakCtr = 0
+```
+
+We checked for peaks by comparing the current acceleration value with the previous (since a peak can only be detected after it's occurred). We used a threshold of 2.0 to remove all small peaks and to only detect the larger ones.
+
+Include links to your code here, and put the code for these in your repo--they will come in handy later.
+
+**All the code written above can be found in this file:** https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%205/demo/app.py
+
 
 Include links to your code here, and put the code for these in your repo--they will come in handy later.
 
@@ -125,30 +207,50 @@ This can be as simple as the boat detector earlier.
 Try out different interactions outputs and inputs.
 **Describe and detail the interaction, as well as your experimentation.**
 
-**We experimented with the face detection model and designed a photo booth. When the face detection detects a face, it asks the user if they want to take a photo. The user can press the red button if they want to and the pi will save a copy of the image for them.**
+One of the observant systems we played around with was the face detection. We decided to create a photobooth style interaction, in which the user is prompted with a question asking whether they would like to take a photo. To incorporate the face detection concept, we prompt the user to take a photo only when their face is detected by the pi cam. If there is any other object other than a recognizable face, the user cannot take a picture. To take a photograph, the user has to click the button and it gets saved in the local folder. The idea was very simple and mainly focussed on triggering the photo functionality. If you click the button when there is no face, no photo is taken. A few points of interest with this interaction:
+
+* The face detection didn't work very well when it was dark
+* If the camera was held at any angle that wasn't straight, the face wasn't detected
+* If your face isn't visible within a specific range of the camera's view, the face isn't detected
+* When funny faces were made in front of the camera, the face wasn't detected
+
+Here is a short video to demonstrate the functionality we created with this face detection photobooth:
+
+[![](https://res.cloudinary.com/marcomontalbano/image/upload/v1618601738/video_to_markdown/images/google-drive--1wbH6gI6LI6RqyBw_SfGFtFqpOmXMKk4C-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1wbH6gI6LI6RqyBw_SfGFtFqpOmXMKk4C/view?usp=sharing "")
+
+The other thing we tried was object detection and we tried building a teachable machines model. We built a plant detection interaction that a user can use to determine whether their plant needs to be watered. We built a teachable machines model to recognize two types of flowers, a potted plant, and a fake succulent. The user can place their plant in front of the pi camera and if the model recoginzes the plant it will show the name on the screen and say whether the plant needs to be watered, if the plant is fine, or if the plant is fake. We also provide feedback using the LED lights along with the voice, so if the plant needs watering then the red light turns on, if the plant is healthy the green light turns on, and if the plant is fake both the red and green lights turn on. We decided to move forward with out plant detection idea. 
+
+Here is a short video demonstrating the trained model on teachable machines:
+
+[![](https://res.cloudinary.com/marcomontalbano/image/upload/v1618600586/video_to_markdown/images/google-drive--14KoTUkC8BK4zjgO9KHrDehFMCi4s8S-p-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/14KoTUkC8BK4zjgO9KHrDehFMCi4s8S-p/view?usp=sharing "")
+
 
 ### Part C
 ### Test the interaction prototype
 
 Now flight test your interactive prototype and **note your observations**:
 For example:
-1. When does it what it is supposed to do?
-1. When does it fail?
-1. When it fails, why does it fail?
-1. Based on the behavior you have seen, what other scenarios could cause problems?
+1. When does it what it is supposed to do? 
+    **The plant detection model detects plants in day light in front of a white background with no other images behind the plant. We think this is partly due to the way we took the initial photos of the plants, and also because it limits the amount of background noise that confuses the model**
+3. When does it fail? 
+    **There are many times when it fails to identify the flower correctly. We ran into an issue where the mdoel would frequently classify everything as a succuclent**
+5. When it fails, why does it fail?
+    **The model fails whenever the angle of the flower is not one that was used in the model training, or if there is something in the background. We also think it was constantly identifying plants as succulents because of the green stem or leaves of the flowers which might look similart to the succulent.**
+7. Based on the behavior you have seen, what other scenarios could cause problems?
+    **We imagine that bad lighting or having a hand in the camera frame could also cause issues. The model needs a clear and bright background in order to identify the plants correctly. Also looking at the plant from far away could cause issues. **
 
 **Think about someone using the system. Describe how you think this will work.**
-1. Are they aware of the uncertainties in the system?
-1. How bad would they be impacted by a miss classification?
-1. How could change your interactive system to address this?
-1. Are there optimizations you can try to do on your sense-making algorithm.
+1. Are they aware of the uncertainties in the system? **They would probably have to try a few times in order to get the correct angles for the model to behave properly**
+1. How bad would they be impacted by a miss classification?**A misclassification wouldn't be too bad, unless it was misclassified as the fake succulent in which case the model will tell the user that their plant is fake and they should throw it away. **
+1. How could change your interactive system to address this?**We could have a voice or instructions on a screen that instructs the user to move closer or adjust the plant in order to aid the model in identifying it.**
+1. Are there optimizations you can try to do on your sense-making algorithm.**We think that having a more robust model with a large dataset of images will help with these issues. If the model is trained on almost every possible angle, lighting, and positition a plant can be in then it is more likely to correctly identify the plant in different settings.**
 
 ### Part D
 ### Characterize your own Observant system
 
 Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
 During the lecture, we mentioned questions to help characterize a material:
-* What can you use X for?
+* What can you use X for? 
 * What is a good environment for X?
 * What is a bad environment for X?
 * When will X break?
