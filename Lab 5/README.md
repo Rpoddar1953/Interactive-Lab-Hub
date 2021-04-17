@@ -10,7 +10,7 @@ In Lab 5 part 1, we focus on detecting and sense-making.
 
 In Lab 5 part 2, we'll incorporate interactive responses.
 
-**I worked on this lab with Shivani Doshi(https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Lab%205) for the entirety of this lab, all our code is the same. **
+**I worked on this lab with Shivani Doshi(https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Lab%205) for the entirety of this lab, all our code is the same.**
 
 
 ## Prep
@@ -176,7 +176,7 @@ We checked for peaks by comparing the current acceleration value with the previo
 
 Include links to your code here, and put the code for these in your repo--they will come in handy later.
 
-**Code can be found here: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%205/demo/app.py
+**Code can be found here:** https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%205/demo/app.py
 
 #### Teachable Machines (beta, optional)
 Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) might look very simple.  However, its simplicity is very useful for experimenting with the capabilities of this technology.
