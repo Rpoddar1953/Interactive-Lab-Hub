@@ -1,4 +1,0 @@
-0 Dahlia
-1 Lily
-2 Potted Plant
-3 Succulent
