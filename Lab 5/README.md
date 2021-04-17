@@ -249,12 +249,16 @@ For example:
 Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
 During the lecture, we mentioned questions to help characterize a material:
 * What can you use X for? 
-* What is a good environment for X?
+* What is a good environment for X? 
+**A good environment is a well lit and clean white background similar to one used in the training images.**
 * What is a bad environment for X?
+**A bad environment is if the lighting is bad/dark or if there are a lot of other objects in the background behind the plant**
 * When will X break?
 * When it breaks how will X break?
 * What are other properties/behaviors of X?
+**Our interaction checks to see if an object is persistent in front of it, so it only speaks and lights up the lights once, and only if the flower has been in front of it for a while. This helps stop the interaction from repeating itself multiple times or constantly switiching between classes as it tries to identify the class.**
 * How does X feel?
+**The interaction with the system feels smooth most of the time. Sometimes it can get annoying when it seems to be very sure of a class that is wrong, such as when it would constantly incorrectly identify the flowers as succulents.**
 
 **Include a short video demonstrating the answers to these questions.**
 
