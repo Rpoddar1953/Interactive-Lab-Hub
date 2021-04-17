@@ -248,19 +248,29 @@ For example:
 
 Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
 During the lecture, we mentioned questions to help characterize a material:
-* What can you use X for? 
-* What is a good environment for X? 
-**A good environment is a well lit and clean white background similar to one used in the training images.**
+* What can you use X for?
+* What is a good environment for X?
 * What is a bad environment for X?
-**A bad environment is if the lighting is bad/dark or if there are a lot of other objects in the background behind the plant**
 * When will X break?
 * When it breaks how will X break?
 * What are other properties/behaviors of X?
-**Our interaction checks to see if an object is persistent in front of it, so it only speaks and lights up the lights once, and only if the flower has been in front of it for a while. This helps stop the interaction from repeating itself multiple times or constantly switiching between classes as it tries to identify the class.**
 * How does X feel?
-**The interaction with the system feels smooth most of the time. Sometimes it can get annoying when it seems to be very sure of a class that is wrong, such as when it would constantly incorrectly identify the flowers as succulents.**
 
 **Include a short video demonstrating the answers to these questions.**
+
+We created a storyboard to demonstrate how our device could be used:
+
+<img src="botany/storyboard.png" height=500>
+
+We found that a good environment is a well lit and clean white background, similar to the one used in the training images. This reduces any background noise and increases the likelihood of a properly classified object. On the other hand, a bad environment is one in which the lighting is bad/dark or when there are a lot of other objects in the background behind the plant.
+
+Our classification system misclassified many of the plants as being a succulent. We believe this happened because the shape of the objects were quite similar, as well as the colors. Here is a short video demonstrating how our system breaking and what it did when it misclassified (the system says "This is fake, throw it away" when it thinks the object is a succulent) - please note the sheer frustration in our voices:
+
+[![](https://res.cloudinary.com/marcomontalbano/image/upload/v1618680185/video_to_markdown/images/google-drive--17Kh_6ZuxwRo-4ShpZzDoctGRUSapxi1D-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/17Kh_6ZuxwRo-4ShpZzDoctGRUSapxi1D/view?usp=sharing "")
+
+Our interaction checks to see if an object is persistent in front of it, so it only speaks and lights up the LEDs once if the flower has been in front of it for a while (i.e. when it persists in the view of the camera). This helps stop the interaction from repeating itself multiple times or constantly switching between classes as it tries to identify the class. 
+
+The interaction with the system feels smooth most of the time. Sometimes it can get annoying when it seems to be very sure of a class that is wrong, such as when it would constantly incorrectly identify the flowers as succulents.
 
 ### Part 2.
 
@@ -271,6 +281,10 @@ Following exploration and reflection from Part 1, finish building your interacti
 Here is a short video to demonstrate the functionality we created with the face detection photobooth:
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1618601738/video_to_markdown/images/google-drive--1wbH6gI6LI6RqyBw_SfGFtFqpOmXMKk4C-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1wbH6gI6LI6RqyBw_SfGFtFqpOmXMKk4C/view?usp=sharing "")
+
+
+Here is the final set up of our botany interaction:
+<img src="botany/setup1.jpg" height=350> <img src="botany/setup2.jpg" height=350>
 
 Here is a short video to demonstrate the functionality we created with the botanist. For our final version we updated our model to include more images of the plants in various different angles in order to help improve the classification performance.:
 
