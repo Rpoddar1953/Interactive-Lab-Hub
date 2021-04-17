@@ -216,7 +216,7 @@ Here are some nice photos we took together!
 
 <img src="photo-booth/pic000.jpg" height=230> <img src="photo-booth/pic001.jpg" height=230> <img src="photo-booth/pic002.jpg" height=230>
 
-The other thing we tried was object detection and we tried building a teachable machines model. We built a plant detection interaction that a user can use to determine whether their plant needs to be watered. We built a teachable machines model to recognize two types of flowers, a potted plant, and a fake succulent. The user can place their plant in front of the pi camera and if the model recoginzes the plant it will show the name on the screen and say whether the plant needs to be watered, if the plant is fine, or if the plant is fake. We also provide feedback using the LED lights along with the voice, so if the plant needs watering then the red light turns on, if the plant is healthy the green light turns on, and if the plant is fake both the red and green lights turn on. We decided to move forward with out plant detection idea. 
+The other thing we tried was object detection and we tried building a teachable machines model. We built a plant detection interaction that a user can use to determine whether their plant needs to be watered. We built a teachable machines model to recognize two types of flowers, a potted plant, and a fake succulent. The user can place their plant in front of the pi camera and if the model recoginzes the plant it will show the name on the screen and say whether the plant needs to be watered, if the plant is fine, or if the plant is fake. We also provide feedback using the LED lights along with the voice, so if the plant needs watering then the red light turns on, if the plant is healthy the green light turns on, and if the plant is fake both the red and green lights turn on. We decided to move forward with our plant detection idea. 
 
 Here is a short video demonstrating the trained model on teachable machines:
 
@@ -231,9 +231,9 @@ For example:
 1. When does it what it is supposed to do? 
     **The plant detection model detects plants in day light in front of a white background with no other images behind the plant. We think this is partly due to the way we took the initial photos of the plants, and also because it limits the amount of background noise that confuses the model**
 3. When does it fail? 
-    **There are many times when it fails to identify the flower correctly. We ran into an issue where the mdoel would frequently classify everything as a succuclent**
+    **There are many times when it fails to identify the flower correctly. We ran into an issue where the mdoel would frequently classify everything as a succulent**
 5. When it fails, why does it fail?
-    **The model fails whenever the angle of the flower is not one that was used in the model training, or if there is something in the background. We also think it was constantly identifying plants as succulents because of the green stem or leaves of the flowers which might look similart to the succulent.**
+    **The model fails whenever the angle of the flower is not one that was used in the model training, or if there is something in the background. We also think it was constantly identifying plants as succulents because of the green stem or leaves of the flowers which might look similar to the succulent.**
 7. Based on the behavior you have seen, what other scenarios could cause problems?
     **We imagine that bad lighting or having a hand in the camera frame could also cause issues. The model needs a clear and bright background in order to identify the plants correctly. Also looking at the plant from far away could cause issues.**
 
@@ -241,7 +241,7 @@ For example:
 1. Are they aware of the uncertainties in the system? **They would probably have to try a few times in order to get the correct angles for the model to behave properly**
 1. How bad would they be impacted by a miss classification?**A misclassification wouldn't be too bad, unless it was misclassified as the fake succulent in which case the model will tell the user that their plant is fake and they should throw it away.**
 1. How could change your interactive system to address this?**We could have a voice or instructions on a screen that instructs the user to move closer or adjust the plant in order to aid the model in identifying it.**
-1. Are there optimizations you can try to do on your sense-making algorithm.**We think that having a more robust model with a large dataset of images will help with these issues. If the model is trained on almost every possible angle, lighting, and positition a plant can be in then it is more likely to correctly identify the plant in different settings.**
+1. Are there optimizations you can try to do on your sense-making algorithm.**We think that having a more robust model with a large dataset of images will help with these issues. If the model is trained on almost every possible angle, lighting, and position a plant can be in then it is more likely to correctly identify the plant in different settings.**
 
 ### Part D
 ### Characterize your own Observant system
