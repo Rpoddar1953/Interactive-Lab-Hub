@@ -229,9 +229,9 @@ Here is a short video demonstrating the trained model on teachable machines:
 Now flight test your interactive prototype and **note your observations**:
 For example:
 1. When does it what it is supposed to do? 
-    **The plant detection model detects plants in day light in front of a white background with no other images behind the plant. We think this is partly due to the way we took the initial photos of the plants, and also because it limits the amount of background noise that confuses the model**
+    **The plant detection model detects plants in day light in front of a white background with no other images behind the plant. We think this is partly due to the way we took the initial photos of the plants, and also because it limits the amount of background noise that confuses the model.**
 3. When does it fail? 
-    **There are many times when it fails to identify the flower correctly. We ran into an issue where the mdoel would frequently classify everything as a succulent**
+    **There are many times when it fails to identify the flowers correctly. We ran into an issue where the model would frequently classify everything as a succulent.**
 5. When it fails, why does it fail?
     **The model fails whenever the angle of the flower is not one that was used in the model training, or if there is something in the background. We also think it was constantly identifying plants as succulents because of the green stem or leaves of the flowers which might look similar to the succulent.**
 7. Based on the behavior you have seen, what other scenarios could cause problems?
@@ -268,7 +268,7 @@ Here is a short video to demonstrate the functionality we created with the face 
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1618601738/video_to_markdown/images/google-drive--1wbH6gI6LI6RqyBw_SfGFtFqpOmXMKk4C-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1wbH6gI6LI6RqyBw_SfGFtFqpOmXMKk4C/view?usp=sharing "")
 
-Here is a short video to demonstrate the functionality we created with the botanist:
+Here is a short video to demonstrate the functionality we created with the botanist. For our final version we updated our model to include more images of the plants in various different angles in order to help improve the classification performance.:
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1618677458/video_to_markdown/images/google-drive--1qqeBXlIsvRo2rQTSCrBQodnvQ2NM9pIu-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1qqeBXlIsvRo2rQTSCrBQodnvQ2NM9pIu/view?usp=sharing "")
 
