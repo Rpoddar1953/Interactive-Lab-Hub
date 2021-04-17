@@ -237,11 +237,11 @@ For example:
 5. When it fails, why does it fail?
     **The model fails whenever the angle of the flower is not one that was used in the model training, or if there is something in the background. We also think it was constantly identifying plants as succulents because of the green stem or leaves of the flowers which might look similart to the succulent.**
 7. Based on the behavior you have seen, what other scenarios could cause problems?
-    **We imagine that bad lighting or having a hand in the camera frame could also cause issues. The model needs a clear and bright background in order to identify the plants correctly. Also looking at the plant from far away could cause issues. **
+    **We imagine that bad lighting or having a hand in the camera frame could also cause issues. The model needs a clear and bright background in order to identify the plants correctly. Also looking at the plant from far away could cause issues.**
 
 **Think about someone using the system. Describe how you think this will work.**
 1. Are they aware of the uncertainties in the system? **They would probably have to try a few times in order to get the correct angles for the model to behave properly**
-1. How bad would they be impacted by a miss classification?**A misclassification wouldn't be too bad, unless it was misclassified as the fake succulent in which case the model will tell the user that their plant is fake and they should throw it away. **
+1. How bad would they be impacted by a miss classification?**A misclassification wouldn't be too bad, unless it was misclassified as the fake succulent in which case the model will tell the user that their plant is fake and they should throw it away.**
 1. How could change your interactive system to address this?**We could have a voice or instructions on a screen that instructs the user to move closer or adjust the plant in order to aid the model in identifying it.**
 1. Are there optimizations you can try to do on your sense-making algorithm.**We think that having a more robust model with a large dataset of images will help with these issues. If the model is trained on almost every possible angle, lighting, and positition a plant can be in then it is more likely to correctly identify the plant in different settings.**
 
