@@ -192,6 +192,8 @@ Here is Adafruit's directions on using Raspberry Pi and the Pi camera with Teach
 
 Alternative less steps option is [here](https://github.com/FAR-Lab/TensorflowonThePi).
 
+**I tested Teachable Machines using my face, my hand, and the wall behind me to train a simple model. Here is a link to a video showing me testing the model:** https://drive.google.com/file/d/1pgUvKXF-RwYvLE8Br9_myiH-NHO73aXQ/view?usp=sharing
+
 #### PyTorch  
 As a note, the global Python install contains also a PyTorch installation. That can be experimented with as well if you are so inclined.
 
