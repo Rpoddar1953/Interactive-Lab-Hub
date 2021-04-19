@@ -85,6 +85,18 @@ pi@ixe00:~/openCV-examples $ tree -l
     ├── HowToUse.md
     └── ssd_mobilenet_v2_coco_2018_03_29.pbtxt
 ```
+
+Here are some photos of me trying the contours detection, face detection, flow detection, and object detection. Overall I was able to get all the models to work. 
+
+<img src="images/contour.png" height=350>  <img src="images/facedetection.png" height=350>  <img src="images/opticflow.png" height=350>  <img src="images/objectdetection.png" height=350> 
+
+Some things I observed:
+* I was very impressed with the contours detection model, it worked the smoothest out of all the models and even noted high points on my face which I wasn't expecting.
+* The face detection model kept outline my nostrils potentially as a second pair of eyes under my actual eyes, it may have been due to the lighting but it happened frequently.
+* The flow detection gave me a little bit of trouble, it would sometimes exit randomly with an error. I also couldn't quite control what point on my face or my hand it chose to track, which made it a little hard to use. 
+* The object detection had a bit of a lag but worked pretty well at detecting my face and my phone. 
+
+
 #### Filtering, FFTs, and Time Series data. (beta, optional)
 Additional filtering and analysis can be done on the sensors that were provided in the kit. For example, running a Fast Fourier Transform over the IMU data stream could create a simple activity classifier between walking, running, and standing.
 
