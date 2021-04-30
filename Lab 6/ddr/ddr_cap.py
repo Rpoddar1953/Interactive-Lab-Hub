@@ -40,6 +40,53 @@ def on_message(client, userdata, msg):
     
             for i in range(12):
                 touched = mpr121.touched_pins
+                
+                if touched[1] and touched[4]:
+                    val = "UD"
+                    print("1 and 4 touched")
+                    client.publish(topic2, val)
+                    isTouched = 1;
+                    break;
+
+                if touched[1] and touched[10]:
+                    val = "LD"
+                    print("1 and 10 touched")
+                    client.publish(topic2, val)
+                    isTouched = 1;
+                    break;
+
+
+                if touched[1] and touched[6]:
+                    val = "RD"
+                    print("1 and 6 touched")
+                    client.publish(topic2, val)
+                    isTouched = 1;
+                    break;
+
+
+                if touched[4] and touched[10]:
+                    val = "LU"
+                    print("4 and 10 touched")
+                    client.publish(topic2, val)
+                    isTouched = 1;
+                    break;
+
+
+                if touched[4] and touched[6]:
+                    val = "RU"
+                    print("4 and 6 touched")
+                    client.publish(topic2, val)
+                    isTouched = 1;
+                    break;
+
+
+                if touched[6] and touched[10]:
+                    val = "LR"
+                    print("6 and 10 touched")
+                    client.publish(topic2, val)
+                    isTouched = 1;
+                    break;
+
 
                 if touched[1]:
                     val = "D"
