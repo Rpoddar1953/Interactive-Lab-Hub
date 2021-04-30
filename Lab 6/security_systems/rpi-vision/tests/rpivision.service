@@ -1,0 +1,21 @@
+# copy to /etc/systemd/system/rpivision.service
+# Test with "sudo systemctl start rpivision.service"
+# Enable with "sudo systemctl enable rpivision.service"
+# Reboot!
+
+[Unit]
+Description=Raspberry Pi TF Vision
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u tests/pitft_labeled_output.py --tflite
+WorkingDirectory=/home/pi/rpi-vision
+Environment="XAUTHORITY=/home/pi/.Xauthority"
+Environment="PYTHONPATH=/home/pi/rpi-vision"
+StandardOutput=journal+console
+StandardError=journal+console
+User=root
+
+[Install]
+WantedBy=multi-user.target
+Alias=rpivision.service
