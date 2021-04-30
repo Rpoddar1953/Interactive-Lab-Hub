@@ -7,7 +7,7 @@ import adafruit_mpr121
 import paho.mqtt.client as mqtt
 import uuid
 
-topic1 = 'IDD/move_setter_test'
+topic1 = 'IDD/move_setter'
 topic2 = 'IDD/dance_moves'
 
 
@@ -31,12 +31,10 @@ def on_message(client, userdata, msg):
     # you can filter by topics
     # if msg.topic == 'IDD/some/other/topic': do thing
     isTouched = 0;
+    handle_speak(msg.payload.decode('UTF-8'))
+    print(msg.payload.decode('UTF-8'))
 
-    if msg.payload.decode('UTF-8') == 'Game Over':
-        handle_speak(msg.payload.decode('UTF-8'))
-    
-    else:
-        handle_speak(msg.payload.decode('UTF-8'))
+    if "Game over" not in msg.payload.decode('UTF-8'):
         
         while isTouched == 0: 
     
@@ -44,28 +42,28 @@ def on_message(client, userdata, msg):
                 touched = mpr121.touched_pins
 
                 if touched[1]:
-                    val = "Moved down"
+                    val = "D"
                     print("1 touched")
                     client.publish(topic2, val)
                     isTouched = 1;
                     break;
 
                 if touched[4]:
-                    val = "Moved up"
+                    val = "U"
                     print ("4 touched")
                     client.publish(topic2, val)
                     isTouched = 1;
                     break;
 
                 if touched[10]:
-                    val = "Moved left"
+                    val = "L"
                     print("10 touched")
                     client.publish(topic2, val)
                     isTouched = 1;
                     break;
 
                 if touched[6]:
-                    val = "Moved right"
+                    val = "R"
                     print("6 touched")
                     client.publish(topic2, val) 
                     isTouched = 1;
@@ -90,39 +88,6 @@ i2c = busio.I2C(board.SCL, board.SDA)
 
 mpr121 = adafruit_mpr121.MPR121(i2c)
 
-#def handle_speak(val):
- #   subprocess.run(["sh","GoogleTTS_demo.sh",val])
-
-#while True:
-
- #   handle_speak(msg.payload.decode('UTF-8'))
-
-
-  #  for i in range(12):
-   #     touched = mpr121.touched_pins
-
-    #    if touched[1]:
-     #       val = "Moved down"
-      #      print("1 touched")
-       #     client.publish(topic, val)
-
-        #if touched[4]:
-         #   val = "Moved up"
-          #  print ("4 touched")
-           # client.publish(topic, val)
-
-      #  if touched[10]:
-       #    val = "Moved left"
-        #    print("10 touched")
-        #    client.publish(topic, val)
-
-        #if touched[6]:
-         #   val = "Moved right"
-          #  print("6 touched")
-           # client.publish(topic, val)
-
-            
-  #  time.sleep(0.25)  # Small delay to keep from spamming output messages.
 
 client.loop_forever()
 
