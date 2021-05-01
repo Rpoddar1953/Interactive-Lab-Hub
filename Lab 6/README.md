@@ -95,13 +95,13 @@ In DDR, you don't only go left, right, up and down - you can also get a move tha
 
 **2. Diagram the architecture of the system.** Be clear to document where input, output and computation occur, and label all parts and connections. For example, where is the banana, who is the banana player, where does the sound get played, and who is listening to the banana music?
 
-<img src="imgs/Lab6diagram.jpg">
+<img src="imgs/Lab6arch.jpg">
 
 This is the order of operations in words:
 1. First, the DDR/reader.py and DDR/ddr_buttons.py files are executed on raspberry pi 1, and DDR/ddr_cap.py executed on raspberry pi 2. The DDR/reader.py file needs to be run so that the controller can ensure that their message was actually sent to the other system (of course, you could just work based on the sound that gets played from raspberry pi 2, but this is easier to parse and more immediate).
 1. While all the appropriate files are running, the controller clicks any one, or combination of two, button(s) on the handheld device. This will send a message from raspberry pi 1 to raspberry pi 2 that says either "LEFT", "RIGHT", "UP", "DOWN", "LEFT-RIGHT", "LEFT-UP", "LEFT-DOWN", "RIGHT-UP", "RIGHT-DOWN" or "UP-DOWN" (depending on which button(s) is/are pressed) on the IDD/move_setter topic.
 1. Raspberry pi 2 will read the incoming message on the IDD/move_setter topic and have the system say it out loud through the speaker. Since the dancer is actually standing and none of the screens we have are big enough to work with, we're leveraging sound instead of vision.
-1. Then the dancer touches one/two of the small keypads on the DDR pad - the touch needs to occur somewhere on the conductive tape line to register that as a move.
+1. Then the dancer touches one/two of the small keypads on the DDR pad - the touch needs to occur somewhere on the conductive tape line that is connected to the capacitive touch sensor to register that as a move.
 1. A message indicating what move the dancer just made is sent back to raspberry pi 1 for verification on the IDD/dance_moves topic.
 1. Raspberry pi 1 reads the message that was sent on the IDD/dance_moves topic and checks whether this is what was expected from the dancer. If it's correct, the score increments by 1. Otherwise, a message indicating that the game is over is sent back to raspberry pi 2 over the IDD/move_setter topic.
 1. The adafruit screen on raspberry pi 1 keeps getting updated with the current score as each new message is received from raspberry pi 2.
@@ -133,8 +133,13 @@ Below is a video of how MQTT 2 (My pi) communicated instructions to the other. N
 
 The system worked mostly quite flawlessly. The only major issues we had were some misalignment between messages sent from the first pi and then from the second pi. We also had issues with messages being sent more than once, which is why we incorporated some time delays. Overall, we're very proud of our creation!
 
+Here is the interaction with the side-by-side of the 2 pi's in concurrent action:
+
+[![](https://res.cloudinary.com/marcomontalbano/image/upload/v1619833666/video_to_markdown/images/google-drive--15boJorPa01POKP3l1S202D1Wte_wLG0s-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/15boJorPa01POKP3l1S202D1Wte_wLG0s/view?usp=sharing "")
+
 **5. BONUS (Wendy didn't approve this so you should probably ignore it)** get the whole class to run your code and make your distributed system BIGGER.
 
 Maybe in future iterations of our DDR, we can incorporate a multiplayer mode which could involve more people. However, they would need the phenomenal setup that we built for our system to do so. In general, we believe that games that require lots of equipment won't work well when expanded to multiple users.
 
 It would also be fun to have stages or levels of difficulty incorporated. However, given the time constraint and the speed at which the communication was conducted it might be difficult to get to expert levels. It also may be a bit of hazard to have someone violently jumping around on a blanket, which could very easily slip resulting in some damage in both technical equipment and personal equipment.
+
