@@ -86,6 +86,7 @@ Glitch is a great tool for prototyping sites, interfaces and web-apps that's wor
 Find at least one class (more are okay) partner, and design a distributed application together. 
 
 **1. Explain your design** For example, if you made a remote controlled banana piano, explain why anyone would want such a thing.
+
 Most people at some point in their lives has been to the arcade and walked passed the glorious Dance Dance Revolution game. It's both really embarrassing and really fun at the same time. But you have no control over what moves you're given - you just follow the rhythm of a song and try to keep up with the arrows on the screen. For our project, we decided to emulate that entire experience, but to actually give a person the ability to control the other person's moves.
 
 To break it down, we made use of communication between 2 pis to accomplish this. The 2 pis communicated over 2 topics: IDD/move_setter and IDD/dance_moves. The first MQTT system sent messages over IDD/move_setter and read the messages being sent on IDD/dance_moves. The second MQTT system did the exact opposite of this (read messages coming from IDD/move_setter and sent messages on IDD/dance_moves). The first MQTT system controlled what moves were sent to the second system. Subsequently, the second MQTT performed the move and this was sent back to the first system. The move was verified by the first system and the score incremented. If there was any mismatch, the game ended and the score was reset to 0.
@@ -107,6 +108,7 @@ This is the order of operations in words:
 1. The game keeps going and the score keeps incrementing until the dancer messes up or the game is actually quit.
 
 **3. Build a working prototype of the system.** Do think about the user interface: if someone encountered these bananas, would they know how to interact with them? Should they know what to expect?
+
 This is what the design of the MQTT 1 system looks like (the controller):
 
 <img src="imgs/controller.jpg" height=350>
@@ -132,6 +134,7 @@ Below is a video of how MQTT 2 (My pi) communicated instructions to the other. N
 The system worked mostly quite flawlessly. The only major issues we had were some misalignment between messages sent from the first pi and then from the second pi. We also had issues with messages being sent more than once, which is why we incorporated some time delays. Overall, we're very proud of our creation!
 
 **5. BONUS (Wendy didn't approve this so you should probably ignore it)** get the whole class to run your code and make your distributed system BIGGER.
+
 Maybe in future iterations of our DDR, we can incorporate a multiplayer mode which could involve more people. However, they would need the phenomenal setup that we built for our system to do so. In general, we believe that games that require lots of equipment won't work well when expanded to multiple users.
 
 It would also be fun to have stages or levels of difficulty incorporated. However, given the time constraint and the speed at which the communication was conducted it might be difficult to get to expert levels. It also may be a bit of hazard to have someone violently jumping around on a blanket, which could very easily slip resulting in some damage in both technical equipment and personal equipment.
