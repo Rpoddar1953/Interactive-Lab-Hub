@@ -94,6 +94,8 @@ In DDR, you don't only go left, right, up and down - you can also get a move tha
 
 **2. Diagram the architecture of the system.** Be clear to document where input, output and computation occur, and label all parts and connections. For example, where is the banana, who is the banana player, where does the sound get played, and who is listening to the banana music?
 
+<img src="imgs/Lab6diagram.jpg">
+
 This is the order of operations in words:
 1. First, the DDR/reader.py and DDR/ddr_buttons.py files are executed on raspberry pi 1, and DDR/ddr_cap.py executed on raspberry pi 2. The DDR/reader.py file needs to be run so that the controller can ensure that their message was actually sent to the other system (of course, you could just work based on the sound that gets played from raspberry pi 2, but this is easier to parse and more immediate).
 1. While all the appropriate files are running, the controller clicks any one, or combination of two, button(s) on the handheld device. This will send a message from raspberry pi 1 to raspberry pi 2 that says either "LEFT", "RIGHT", "UP", "DOWN", "LEFT-RIGHT", "LEFT-UP", "LEFT-DOWN", "RIGHT-UP", "RIGHT-DOWN" or "UP-DOWN" (depending on which button(s) is/are pressed) on the IDD/move_setter topic.
