@@ -8,6 +8,18 @@
    * [MQTT](#MQTT)
    * [The Presence Table](https://dl.acm.org/doi/10.1145/1935701.1935800) and [video](https://vimeo.com/15932020)
 
+## Collaborators
+
+I worked with Shivani Doshi on this lab (sgd73). I worked mainly on using the capacitive sensor to send messages to Shivani's pi based on my dance steps.
+
+Here is a link to my code: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%206/ddr/ddr_cap.py
+
+Here is a link to her code: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%206/ddr/ddr_buttons.py
+
+We came up with this idea together after lots of brainstorming, so we hope you enjoy! Here is the link to Shivani's repo: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Lab%206
+
+Also want to note that we used Disco Inferno by The Trammps as the background song to one of our videos (we do not own the rights to this song: https://www.youtube.com/watch?v=A_sY2rjxq6M). We hope you enjoy it!
+
 
 ## Introduction
 
