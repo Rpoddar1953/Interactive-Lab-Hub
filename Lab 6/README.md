@@ -12,9 +12,9 @@
 
 I worked with Shivani Doshi on this lab (sgd73). I worked mainly on using the capacitive sensor to send messages to Shivani's pi based on my dance steps.
 
-Here is a link to my code: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%206/ddr/ddr_cap.py
+Here is a link to the code I worked on: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%206/ddr/ddr_cap.py
 
-Here is a link to her code: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%206/ddr/ddr_buttons.py
+Here is a link to the code Shivani worked on: https://github.com/Rpoddar1953/Interactive-Lab-Hub/blob/Spring2021/Lab%206/ddr/ddr_buttons.py
 
 We came up with this idea together after lots of brainstorming, so we hope you enjoy! Here is the link to Shivani's repo: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Lab%206
 
