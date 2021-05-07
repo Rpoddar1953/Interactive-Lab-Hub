@@ -28,7 +28,7 @@ var mainState = {
     preload: function() {
         // This function will be executed at the beginning
         // Load the bird sprite
-    	game.load.image('bird', '../imgs/bird.png'); 
+    	game.load.image('bird', 'assets/bird.png'); 
     },
 
     create: function() {
