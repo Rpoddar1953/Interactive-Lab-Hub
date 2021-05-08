@@ -34,7 +34,8 @@ def handle_message(val):
     currAccel = mpu.acceleration
 
     # THRESHOLD DETECTION
-    if currAccel[0] > 2.00 and currAccel[1] >2.00 and currAccel[2] > 2.00:
+    #if currAccel[0] > 2.00 and currAccel[1] >2.00 and currAccel[2] > 2.00:
+    if currAccel[1] >1.00:
         print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
         emit('pong-gps', currAccel) 
 

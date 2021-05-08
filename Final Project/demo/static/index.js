@@ -28,8 +28,8 @@ var mainState = {
     preload: function() {
         // This function will be executed at the beginning
         // Load the bird sprite
-    	game.load.image('bird', 'assets/bird.png');
-	game.load.image('pipe', 'assets/pipe.png');
+    	game.load.image('bird', 'static/assets/bird.png');
+	game.load.image('pipe', 'static/assets/pipe.png');
     },
 
     create: function() {
@@ -53,9 +53,11 @@ var mainState = {
     	// Call the 'jump' function when the spacekey is hit
     	//var spaceKey = game.input.keyboard.addKey(
         //            Phaser.Keyboard.SPACEBAR);
-    //	spaceKey.onDown.add(this.jump, this);   
+    	
+	//spaceKey.onDown.add(this.jump, this);   
 
-	 socket.on('pong-gps', (new_x,new_y,new_z) => {
+	socket.on('pong-gps', (new_x,new_y,new_z) => {
+	    console.log("receievd");
     	    this.jump();
 	 });   
 	
@@ -122,7 +124,7 @@ var mainState = {
     	// Add the 6 pipes 
     	// With one big hole at position 'hole' and 'hole + 1'
     	for (var i = 0; i < 8; i++)
-            if (i != hole && i != hole + 1) 
+            if (i != hole && i != hole + 1 && i != hole -1) 
 	        this.addOnePipe(400, i * 60 + 10);   
 	
     	this.score += 1;
