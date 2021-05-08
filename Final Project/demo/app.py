@@ -30,7 +30,13 @@ def test_connect():
 @socketio.on('ping-gps')
 def handle_message(val):
     # print(mpu.acceleration)
-    emit('pong-gps', mpu.acceleration) 
+
+    currAccel = mpu.acceleration
+
+    # THRESHOLD DETECTION
+    if currAccel[0] > 2.00 and currAccel[1] >2.00 and currAccel[2] > 2.00:
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
+        emit('pong-gps', currAccel) 
 
 
 @app.route('/')

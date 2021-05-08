@@ -51,10 +51,13 @@ var mainState = {
     	this.bird.body.gravity.y = 1000;  
 
     	// Call the 'jump' function when the spacekey is hit
-    	var spaceKey = game.input.keyboard.addKey(
-                    Phaser.Keyboard.SPACEBAR);
-    	
-	spaceKey.onDown.add(this.jump, this);   
+    	//var spaceKey = game.input.keyboard.addKey(
+        //            Phaser.Keyboard.SPACEBAR);
+    //	spaceKey.onDown.add(this.jump, this);   
+
+	 socket.on('pong-gps', (new_x,new_y,new_z) => {
+    	    this.jump();
+	 });   
 	
 	// Create an empty group
 	this.pipes = game.add.group(); 
