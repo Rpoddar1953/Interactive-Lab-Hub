@@ -13,7 +13,8 @@ socket.on('connect', () => {
 //wordsIn.onkeyup = (e) => { if (e.keyCode === 13) { send.click(); } };
   
 setInterval(() => {
-  socket.emit('ping-gps', 'dat')
+  //socket.emit('ping-gps', 'dat')
+  socket.emit('ping-joystick', 'dat')
 }, 100)
 
 socket.on('disconnect', () => {
@@ -56,10 +57,13 @@ var mainState = {
     	
 	//spaceKey.onDown.add(this.jump, this);   
 
-	socket.on('pong-gps', (new_x,new_y,new_z) => {
-	    console.log("receievd");
-    	    this.jump();
-	 });   
+	//socket.on('pong-gps', (new_x,new_y,new_z) => {
+	  //  console.log("receievd");
+    	  //  this.jump();
+	// });   
+	socket.on('pong-joystick',() => {
+		this.jump();
+	});
 	
 	// Create an empty group
 	this.pipes = game.add.group(); 
