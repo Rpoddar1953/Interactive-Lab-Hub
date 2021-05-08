@@ -7,7 +7,7 @@ import busio
 import adafruit_mpu6050
 import json
 import socket
-
+import qwiic_joystick
 import signal
 import sys
 from queue import Queue
@@ -15,6 +15,10 @@ from queue import Queue
  
 i2c = busio.I2C(board.SCL, board.SDA)
 mpu = adafruit_mpu6050.MPU6050(i2c)
+
+# For the joystick
+joystick = qwiic_joystick.QwiicJoystick()
+joystick.begin()
 
 hostname = socket.gethostname()
 hardware = 'plughw:2,0'
@@ -27,6 +31,7 @@ def test_connect():
     print('connected')
     emit('after connect',  {'data':'Lets dance'})
 
+#send back accelerometer interaction
 @socketio.on('ping-gps')
 def handle_message(val):
     # print(mpu.acceleration)
@@ -38,6 +43,13 @@ def handle_message(val):
     if currAccel[1] >1.00:
         print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (currAccel))
         emit('pong-gps', currAccel) 
+
+#send back joystick interaction
+@socketio.on('ping-joystick')
+def handle_message(val):
+    if joystick.get_horizontal() < 510:
+        emit('pong-joystick', 'make a jump') 
+
 
 
 @app.route('/')
