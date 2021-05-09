@@ -1,4 +1,7 @@
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 import cv2
 import time
 import argparse
@@ -44,7 +47,8 @@ def main():
                 displacement_fwd_result.squeeze(axis=0),
                 displacement_bwd_result.squeeze(axis=0),
                 output_stride=output_stride,
-                max_pose_detections=10,
+                #max_pose_detections=10,
+                max_pose_detections=1,
                 min_pose_score=0.15)
 
             keypoint_coords *= output_scale
@@ -53,6 +57,15 @@ def main():
             overlay_image = posenet.draw_skel_and_kp(
                 display_image, pose_scores, keypoint_scores, keypoint_coords,
                 min_pose_score=0.15, min_part_score=0.1)
+            
+            #if keypoint_coords:
+            print(keypoint_coords)
+
+            if keypoint_coords[0][9][1] > keypoint_coords[0][0][1]:
+                print("left hand above nose")
+
+            if keypoint_coords[0][10][1] > keypoint_coords[0][0][1]:
+                print("right hand above nose")
 
             cv2.imshow('posenet', overlay_image)
             frame_count += 1
@@ -60,6 +73,7 @@ def main():
                 break
 
         print('Average FPS: ', frame_count / (time.time() - start))
+        
 
 
 if __name__ == "__main__":

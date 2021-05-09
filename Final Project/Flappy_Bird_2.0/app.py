@@ -15,11 +15,11 @@ import adafruit_ssd1306
 
 import cv2
 import time
-import argparse
-import os
-import torch
+#import argparse
+#import os
+#import torch
 
-import posenet
+#import posenet
 
 # For drawing text on the OLED display
 font1 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
