@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="static/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"></script>
     <script type="text/javascript" src="static/phaser.min.js"></script>
-    <script src="static/arms.js"></script>
+    <script src="https://unpkg.com/@tensorflow/tfjs@3.6.0/dist/tf.min.js"></script>
+    <script src="https://unpkg.com/@tensorflow-models/posenet@2.2.2/dist/posenet.min.js"></script>
+    <script type="text/javascript" src="static/webcam-easy.min.js"></script> 
     <title>Flappy Bird 2.0!</title>
     <h1 style=font-size:60px>Arms Mode</h1>
     <p align="center">
@@ -16,5 +18,8 @@
          <button class=grey style="height:50px;width:150px">New Game</button>
       </a>
     </p>
+    <video id="webcam" autoplay playsinline width="640" height="480"></video>
+    <canvas id="canvas" class="d-none"></canvas>
+    <script src="static/arms.js"></script>
 </head>
 </html>
