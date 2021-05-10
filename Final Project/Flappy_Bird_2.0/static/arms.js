@@ -10,6 +10,19 @@ socket.on('disconnect', () => {
       });
 
 
+const webcamElement = document.getElementById('webcam');
+console.log(webcamElement);
+const canvasElement = document.getElementById('canvas');
+const webcam = new Webcam(webcamElement, 'user', canvasElement);
+
+webcam.start()
+  .then(result =>{
+    console.log("webcam started");
+  })
+  .catch(err => {
+    console.log(err);
+});
+
 // Create our 'main' state that will contain the game
 var mainState = {
 preload: function() {
@@ -41,9 +54,20 @@ create: function() {
            // Add gravity to the bird to make it fall
            this.bird.body.gravity.y = 1000;  
 
-           socket.on('pong-arms', () => {
-                 this.jump();
-                 });
+           //socket.on('pong-arms', () => {
+           //      this.jump();
+           //      });
+           
+           const imageScaleFactor = 0.50;
+           const flipHorizontal = false;
+           const outputStride = 16;
+
+           // load the posenet model
+           //const pose = await net.estimateSinglePose(video, scaleFactor, flipHorizontal, outputStride);
+           
+           //if (pose.keypoints[0].y < pose.keypoints[9].y) {
+           //    this.jump();
+           //}
 
            // Create an empty group
            this.pipes = game.add.group(); 
