@@ -72,9 +72,9 @@ For the **arms** mode, you will need access to a browser that does not have secu
 
 We need to do this because Google Chrome restricts insecure URL's from being able to access any of the media devices. While this is a wonderful security measure, it does not help our application because we do not have an SSL certificate tied to it. 
 
-Go ahead and accept the corresponding pop-up that shows on your screen after running the above. This will open a new Google Chrome browser with the security permissions unrestricted for the domain where our website will be hosted: http://sgd73.local:5000/. 
+Go ahead and accept the corresponding pop-up that shows on your screen after running the above. This will open a new Google Chrome browser with the security permissions unrestricted for the domain where our website will be hosted: http://rp477.local:5000/. 
 
-Proceed to the starting page of the game at http://sgd73.local:5000/new_game and get started playing. We hope you enjoy it and have a fun time triggering the frustration you once felt when playing this addictive game!
+Proceed to the starting page of the game at http://rp477.local:5000/new_game and get started playing. We hope you enjoy it and have a fun time triggering the frustration you once felt when playing this addictive game!
 
 ## References
 
