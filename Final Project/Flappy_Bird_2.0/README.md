@@ -19,7 +19,7 @@ For the sake of this project, you will need the following pieces of equipment:
 Ensure you set up your raspberry pi with these devices plugged in and daisy chained together. Then, you will need to boot up your raspberry pi and SSH into it on the appropriate host:
 
 ```
-ssh pi@sgd73.local
+ssh pi@rp477.local
 ```
 
 Proceed to enter your password and you will be logged in - remember that the hostname may defer if you are using your own personal raspberry pi.
@@ -27,17 +27,17 @@ Proceed to enter your password and you will be logged in - remember that the hos
 You may want to perform the package installation from within a virtual environment, as it may interfere with some of the other packages you have installed on your system. Therefore, you must first run this code before installing any requirements:
 
 ```
-pi@sgd73:~ $ virtualenv flappybird2
-pi@sgd73:~ $ source flappybird2/bin/activate
-(flappybird2) pi@sgd73:~ $
+pi@rp477:~ $ virtualenv flappybird2
+pi@rp477:~ $ source flappybird2/bin/activate
+(flappybird2) pi@rp477:~ $
 ```
 
 Then clone this repository locally (if you don't already have it), change to the appropriate directory and install all the necessary requirements:
 
 ```
-(flappybird2) pi@sgd73:~ $ git clone https://github.com/shivanidoshi26/Interactive-Lab-Hub.git
-(flappybird2) pi@sgd73:~ $ cd Interactive-Lab-Hub/Final\ Project/Flappy_Bird_2.0/
-(flappybird2) pi@sgd73:~/Interactive-Lab-Hub/Final Project/Flappy_Bird_2.0 $ pip3 install -r requirements.txt
+(flappybird2) pi@rp477:~ $ git clone https://github.com/Rpoddar1953/Interactive-Lab-Hub.git
+(flappybird2) pi@rp477:~ $ cd Interactive-Lab-Hub/Final\ Project/Flappy_Bird_2.0/
+(flappybird2) pi@rp477:~/Interactive-Lab-Hub/Final Project/Flappy_Bird_2.0 $ pip3 install -r requirements.txt
 ```
 
 Once the requirements have been downloaded and all the technology has been plugged in and set up correctly, you should be able to start running the application!
@@ -45,7 +45,7 @@ Once the requirements have been downloaded and all the technology has been plugg
 To run the application simply run the following file:
 
 ```
-(flappybird2) pi@sgd73:~/Interactive-Lab-Hub/Final Project/Flappy_Bird_2.0 $ python3 app.py
+(flappybird2) pi@rp477:~/Interactive-Lab-Hub/Final Project/Flappy_Bird_2.0 $ python3 app.py
 ```
 
 ## Notes about the Technology
@@ -67,7 +67,7 @@ For the **accelerometer** mode, the bird will only jump when the accelerometer i
 For the **arms** mode, you will need access to a browser that does not have security restrictions and permission issues with accessing the webcam. Though insecure, we recommend running the following command from your local computer (not from the raspberry pi) via the terminal - this is assuming you have and use Google Chrome as one of your browsers:
 
 ```
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --unsafely-treat-insecure-origin-as-secure="http://sgd73.local:5000/" --user-data-dir=~/Desktop/test_dir
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --unsafely-treat-insecure-origin-as-secure="http://rp477.local:5000/" --user-data-dir=~/Desktop/test_dir
 ```
 
 We need to do this because Google Chrome restricts insecure URL's from being able to access any of the media devices. While this is a wonderful security measure, it does not help our application because we do not have an SSL certificate tied to it. 
