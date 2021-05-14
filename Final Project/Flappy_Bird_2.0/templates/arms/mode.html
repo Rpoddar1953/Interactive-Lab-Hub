@@ -18,8 +18,10 @@
          <button class=grey style="height:50px;width:150px">New Game</button>
       </a>
     </p>
-    <video id="webcam" autoplay playsinline width="640" height="480"></video>
-    <canvas id="canvas" class="d-none"></canvas>
-    <script src="static/arms.js"></script>
 </head>
+<div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 35px;">
+    <video id="webcam" autoplay playsinline width="480" height="360"></video>
+    <div style="margin-left: 50px" id="game-area"></div>
+</div>
+    <script src="static/arms.js"></script>
 </html>
