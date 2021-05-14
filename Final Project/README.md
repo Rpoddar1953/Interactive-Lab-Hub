@@ -1,6 +1,6 @@
 # Final Project
 
-Using the tools and techniques we learned in this class, Ritika Poddar (rp477) and I (sgd73) designed, prototyped and tested an interactive device: Flappy Bird 2.0!
+Using the tools and techniques we learned in this class, I (rp477) and Shivani Doshi (sgd73) designed, prototyped and tested an interactive device: Flappy Bird 2.0!
  
 ## Description
 
@@ -26,7 +26,7 @@ The following sections detail out all the prototyping, coding, reflecting, demoi
 
 ## Archive of Everything
 
-For extremely detailed instructions about how to get set up with the right packages, code and environment, please refer to the README in the Flappy_Bird_2.0 directory within this repository. Here is the link to the folder: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Final%20Project/Flappy_Bird_2.0.
+For extremely detailed instructions about how to get set up with the right packages, code and environment, please refer to the README in the Flappy_Bird_2.0 directory within this repository. Here is the link to the folder: https://github.com/Rpoddar1953/Interactive-Lab-Hub/tree/Spring2021/Final%20Project/Flappy_Bird_2.0.
 
 Our ultimate goal for the physical design of the device was for it to be very simple. Since we were building up a game, we wanted all the technology to be close and well-connected. As we built a web application, one wouldn't be able to access the game without a computer. Having kept that in mind, we did our best to simplify the container for the rest of the technology. One of most important things we needed to keep in mind with our design was to orient the devices the right way, because our solution works with very specific directions and movements with the tech. 
 
@@ -88,14 +88,14 @@ Overall, we are very proud of achieving all of this amazing work in just 1 week!
 
 ## Teams
 
-Ritika Poddar (rp477) and I decided to work together for the entirety of this project. The effort we both put in was extremely equal and we're both very happy with how we've worked as a team (for not only this project, but most of them throughout the semester). Specifically:
-- Ritika started us off and implemented the basic infrastructure of the game.
-- I cleaned up the UI and integrated all the components of the web application together to make a smooth web interaction.
+Shivani Doshi (sgd73) and I decided to work together for the entirety of this project. The effort we both put in was extremely equal and we're both very happy with how we've worked as a team (for not only this project, but most of them throughout the semester). Specifically:
+- I started us off and implemented the basic infrastructure of the game.
+- Shivani cleaned up the UI and integrated all the components of the web application together to make a smooth web interaction.
 - We figured out how to implement the accelerometer appropriately. 
-- Ritika got the joystick working, which was quite easy to figure out once we'd figured out the accelerometer. 
-- Ritika played around with posenet and got a basic version with the pi cam working - we decided to scrap using the pi cam due to issues with major delays and slowness.
+- I got the joystick working, which was quite easy to figure out once we'd figured out the accelerometer. 
+- I played around with posenet and got a basic version with the pi cam working - we decided to scrap using the pi cam due to issues with major delays and slowness.
 - We collectively figured out how to instead perform all the arms code browser-side - for this we needed to gain access to the computer's web camera and use that input to process the subsequent actions. A big thanks to David Goedicke for staying on call for nearly an hour helping us figure out how to get the web cam working!
 - We finally got arms to work pretty cleanly and process the input at a fairly normal rate.
-- I reorganized the UI and made last-minute touches and improvements.
+- Shivani reorganized the UI and made last-minute touches and improvements.
 
-The documentation and code for our final project is the same on both hers and my repository. Here is a link to her final project repository, in any case: https://github.com/Rpoddar1953/Interactive-Lab-Hub/tree/Spring2021/Final%20Project.
+The documentation and code for our final project is the same on both hers and my repository. Here is a link to her final project repository, in any case: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Final%20Project/Flappy_Bird_2.0.
