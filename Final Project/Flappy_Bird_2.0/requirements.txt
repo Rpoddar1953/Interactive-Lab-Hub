@@ -1,4 +1,4 @@
-Adafruit-Blinka==6.4.1
+Adafruit-Blinka==6.4.0
 adafruit-circuitpython-apds9960==2.2.5
 adafruit-circuitpython-busdevice==5.0.6
 adafruit-circuitpython-framebuf==1.4.6
@@ -11,8 +11,8 @@ Adafruit-GPIO==1.0.3
 Adafruit-PlatformDetect==3.4.1
 Adafruit-PureIO==1.1.8
 Adafruit-SSD1306==1.6.2
-circuitpython-i2c-button==2.2.1
 bidict==0.21.2
+circuitpython-i2c-button==2.2.1
 click==7.1.2
 dnspython==1.16.0
 eventlet==0.30.2

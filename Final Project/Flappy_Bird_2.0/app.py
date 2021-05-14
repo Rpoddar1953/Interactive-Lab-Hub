@@ -13,14 +13,6 @@ import qwiic_joystick
 import qwiic_twist
 import adafruit_ssd1306
 
-import cv2
-import time
-#import argparse
-#import os
-#import torch
-
-#import posenet
-
 # For drawing text on the OLED display
 font1 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
 font2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 8)
@@ -124,11 +116,6 @@ def handle_message(val):
     if curr_accel[0] > 5:
         emit('pong-accel', curr_accel)
 
-# Send back arms interaction
-@socketio.on('ping-arms')
-def handle_message(val):
-    emit('pong-arms','TODO')
-
 def signal_handler(sig, frame):
     print('Closing Gracefully')
     sys.exit(0)
@@ -137,3 +124,4 @@ signal.signal(signal.SIGINT, signal_handler)
 
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0', port=5000)
+

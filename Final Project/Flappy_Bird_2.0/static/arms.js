@@ -178,4 +178,3 @@ game.state.add('StateOver', StateOver);
 // Start the state to actually start the game
 game.state.start('main');
 
-
