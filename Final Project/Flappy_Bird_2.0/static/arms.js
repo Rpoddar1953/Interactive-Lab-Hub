@@ -1,33 +1,29 @@
 const socket = io();
 socket.on('connect', () => {});
 
-setInterval(() => {
-      socket.emit('ping-arms', 'dat')
-      }, 100)
-
 socket.on('disconnect', () => {
       console.log('disconnect')
       });
 
-
 const webcamElement = document.getElementById('webcam');
-console.log(webcamElement);
-const canvasElement = document.getElementById('canvas');
-const webcam = new Webcam(webcamElement, 'user', canvasElement);
+const webcam = new Webcam(webcamElement, 'user');
 
 webcam.start()
-  .then(result =>{
-    console.log("webcam started");
-  })
-  .catch(err => {
-    console.log(err);
-});
+   .then(result =>{
+         console.log("webcam started");
+         })
+.catch(err => {
+      console.log(err);
+      });
 
 // Create our 'main' state that will contain the game
 var mainState = {
+
 preload: function() {
             // This function will be executed at the beginning
             // Load the bird sprite
+            this.gameOverFlag = false;
+
             game.load.image('bird', 'static/assets/bird.png');
             game.load.image('pipe', 'static/assets/pipe.png');
             game.load.image('playAgain', 'static/assets/playagain.png');
@@ -52,22 +48,36 @@ create: function() {
            game.physics.arcade.enable(this.bird);
 
            // Add gravity to the bird to make it fall
-           this.bird.body.gravity.y = 1000;  
+           this.bird.body.gravity.y = 700; 
 
-           //socket.on('pong-arms', () => {
-           //      this.jump();
-           //      });
-           
            const imageScaleFactor = 0.50;
            const flipHorizontal = false;
            const outputStride = 16;
 
-           // load the posenet model
-           //const pose = await net.estimateSinglePose(video, scaleFactor, flipHorizontal, outputStride);
-           
-           //if (pose.keypoints[0].y < pose.keypoints[9].y) {
-           //    this.jump();
-           //}
+           async function estimatePoseOnImage(imageElement, jumpFunc, bird) {
+              this.bird = bird;
+              const net = await posenet.load();
+
+              // load the posenet model
+              const pose = await net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride);
+
+              console.log(pose);
+
+              if (pose.keypoints[0].position.y > pose.keypoints[9].position.y && pose.keypoints[0].position.y > pose.keypoints[10].position.y) {
+                 console.log("attempted jump");
+                 jumpFunc();
+              } else {
+                 console.log("so sad too bad");
+              }
+
+              return pose;
+           }
+
+           if (!this.gameOverFlag) {
+              setInterval(() => {
+                    const pose = estimatePoseOnImage(webcamElement, this.jump, this.bird);
+                    }, 800);
+           }
 
            // Create an empty group
            this.pipes = game.add.group(); 
@@ -90,13 +100,13 @@ update: function() {
            game.physics.arcade.overlap(
                  this.bird, this.pipes, this.gameOver, null, this);
 
-           game.scale.pageAlignHorizontally = true;
-           game.scale.refresh();
+           //game.scale.pageAlignHorizontally = true;
+           //game.scale.refresh();
         },
 
 jump: function() {
          // Add a vertical velocity to the bird
-         this.bird.body.velocity.y = -350;
+         this.bird.body.velocity.y = -250;
       },
 
 addOnePipe: function(x, y) {
@@ -133,6 +143,7 @@ addRowOfPipes: function() {
                },
 
 gameOver: function() {
+             this.gameOverFlag = true;
              game.state.start('StateOver');
           }
 };
@@ -158,7 +169,7 @@ restartGame:function()
 }
 
 // Initialize Phaser, and create a 400px by 490px game
-var game = new Phaser.Game(400, 490);
+var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game-area');
 
 // Add the 'mainState' and call it 'main'
 game.state.add('main', mainState);
@@ -166,4 +177,5 @@ game.state.add('StateOver', StateOver);
 
 // Start the state to actually start the game
 game.state.start('main');
+
 
