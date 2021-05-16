@@ -98,4 +98,4 @@ Shivani Doshi (sgd73) and I decided to work together for the entirety of this pr
 - We finally got arms to work pretty cleanly and process the input at a fairly normal rate.
 - Shivani reorganized the UI and made last-minute touches and improvements.
 
-The documentation and code for our final project is the same on both hers and my repository. Here is a link to her final project repository, in any case: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Final%20Project/Flappy_Bird_2.0.
+The documentation and code for our final project is the same on both hers and my repository. Here is a link to her final project repository, in any case: https://github.com/shivanidoshi26/Interactive-Lab-Hub/tree/Spring2021/Final%20Project.
